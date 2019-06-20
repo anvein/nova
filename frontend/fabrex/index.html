@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- metas -->
+    <meta charset="utf-8">
+    <meta name="author" content="ChitrakootWeb" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="keywords" content="Multipurpose Business and Admin HTML5 Template" />
+    <meta name="description" content="Fabrex - Multipurpose Business and Admin Template" />
+
+    <!-- title  -->
+    <title>Fabrex - Multipurpose Business and Admin Template</title>
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="img/logos/favicon.png">
+    <link rel="apple-touch-icon" href="img/logos/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="img/logos/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="img/logos/apple-touch-icon-114x114.png">
+
+    <!-- plugins -->
+    <link rel="stylesheet" href="css/plugins.css" />
+
+    <!-- custom css -->
+    <link href="css/styles.css" rel="stylesheet" id="colors">
+
+    <style type="text/css">
+        .demo-grid-wrapper .demo-grid-item-img {
+            display: inline-block;
+            position: relative;
+            width: 100%;
+            border: 10px solid #fff;
+            box-shadow: 0 0 45px 0 rgba(0, 0, 0, .15);
+            cursor: pointer;
+            overflow: hidden;
+        }
+        
+        .demo-grid-wrapper .demo-grid-item-img img {
+            width: 100%;
+        }
+        
+        .demo-grid-wrapper .demo-grid-item-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            -webkit-transition: background-color .3s ease-in;
+            transition: background-color .3s ease-in;
+            background-color: rgba(255, 255, 255, 0);
+        }
+        
+        @keyframes animatedBackground {
+            from {
+                background-position: 0 0;
+            }
+            to {
+                background-position: 100% 0;
+            }
+        }
+        
+        .bg-animate {
+            background-position: 0 0;
+            background-repeat: repeat-x;
+            animation: animatedBackground 30s linear infinite;
+        }
+        
+        .bg-overlay:before {
+            background-color: rgba(0, 0, 0, 0.70);
+            content: "";
+            display: inline-block;
+            height: 100%;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+        }
+        
+        .banner-words-wrapper {
+            display: inline-block;
+            position: relative;
+            text-align: left;
+            overflow: hidden;
+        }
+        
+        .banner-words-wrapper b {
+            font-weight: 700;
+        }
+        
+        .banner-words-wrapper b {
+            display: inline-block;
+            position: absolute;
+            white-space: nowrap;
+            left: 0;
+            top: 0;
+            text-transform: uppercase;
+            font-size: 58px;
+        }
+        
+        .banner-words-wrapper b.is-visible {
+            position: relative;
+        }
+        
+        .banner-headline.clip b {
+            opacity: 0;
+        }
+        
+        .banner-headline b.is-visible {
+            opacity: 1;
+        }
+        
+        .banner-headline .banner-words-wrapper:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 2px;
+            height: 90%;
+            background-color: rgba(255, 255, 255, 0.65);
+        }
+        
+        @media screen and (max-width: 767px) {
+            .banner-words-wrapper b {
+                font-size: 32px;
+            }
+        }
+        
+        .countup:after {
+            content: "+";
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- start header section -->
+я    <header class="padding-20px-tb">
+        <div class="navbar navbar-dark no-padding fixed-top position-relative">
+            <div class="container">
+                <div class="row d-flex width-100">
+                    <div class="col-7 col-md-7">
+                        <a href="index.html" class="navbar-brand d-flex align-items-center height-70px sm-height-60px logodefault">
+                            <img src="img/logos/logo.png" alt="Fabrex - Multipurpose Business and Admin Template" title="Fabrex - Multipurpose Business and Admin Template" width="164" height="43" />
+                        </a>
+                    </div>
+                    <div class="col-5 col-md-5">
+                        <div class="text-right height-70px sm-height-60px line-height-normal no-padding">
+                            <a class="font-size16 display-inline-block vertical-align-middle sm-margin-10px-top margin-15px-top font-weight-700 text-uppercase" href="#features">Features</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- end header section -->
+
+    <!-- start intro section -->
+    <section class="position-relative padding-nine-tb  bg-overlay bg-animate" style="background-image: url(img/demos/hero-bg.jpg);">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9 col-md-12 center-col text-center">
+                    <h1 class="banner-headline clip no-margin text-theme-color">
+                        <span class="banner-words-wrapper">
+                            <b class="is-visible">Agency</b>
+                            <b>Corporates</b>
+                            <b>Creative</b>
+                            <b>Multipurpose</b>
+                            <b>Business</b>
+                            <b>Finance</b>
+                            <b>Construction</b>
+                            <b>Interior</b>
+                            <b>Medical</b>
+                            <b>Tour</b>
+                            <b>Shop</b>
+                            <b>Admin</b>
+                            <b>Multi Page</b>
+                            <b>Startup</b>
+                            <b>University</b>
+                            <b>Charity</b>
+                            <b>One Page</b>
+                            <b>App Landing</b>
+                            <b>Portfolio</b>
+                            <b>Restaurant</b>
+                        </span>
+                    </h1>
+
+                    <div class="separator-line-horrizontal-medium-light2 bg-white center-col margin-30px-bottom sm-margin-20px-bottom opacity6"></div>
+
+                    <p class="text-light-gray font-size18 line-height-30 sm-font-size16 line-height-26 margin-30px-bottom sm-margin-20px-bottom">Fabrex have 20+ home variations including 13+ Niche Demos, Admin Dashboard and pages, 3+ Separate Unique Demos like Startup Agency, University, Charity, etc., 3+ One Page Demos like App Landing, Portfolio, Restaurant. Theme color options, boxed and wide layout options and so many elements available. Fabrex Multipurpose Business and Admin Template which is very easy to customize and there so many elements so anybody can easily customize for any business.</p>
+
+                    <div class="border-right border-color-light-white display-inline-block padding-35px-lr text-center xs-width-100 xs-margin-30px-bottom xs-no-border-right">
+                        <h4 class="countup text-white display-block xs-text-center margin-10px-bottom">20</h4>
+                        <span class="text-white font-size24 font-weight-700">Unique Demos</span>
+                    </div>
+
+                    <div class="border-right border-color-light-white display-inline-block padding-35px-lr text-center xs-width-100 xs-margin-30px-bottom xs-no-border-right">
+                        <h4 class="countup text-white display-block xs-text-center margin-10px-bottom">260</h4>
+                        <span class="text-white font-size24 font-weight-700">Pages</span>
+                    </div>
+
+                    <div class="display-inline-block padding-35px-lr text-center xs-width-100">
+                        <h4 class="countup text-white display-block xs-text-center margin-10px-bottom">70</h4>
+                        <span class="text-white font-size24 font-weight-700">Elements</span>
+                    </div>
+
+                    <div class="clearer margin-45px-top"></div>
+
+                    <a href="#demos" class="butn theme white-hover"><span>View All Demos</span></a>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end intro section -->
+
+    <!-- start demo section -->
+    <section id="demos">
+        <div class="container-fluid">
+            <div class="padding-eight-lr">
+                <div class="row">
+                    <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 center-col margin-70px-bottom sm-margin-40px-bottom xs-margin-30px-bottom text-center last-paragraph-no-margin">
+                        <h3 class="alt-font font-weight-800 text-uppercase margin-15px-bottom">Niche Demos</h3>
+                        <div class="separator-line-horrizontal-medium-light2 bg-black center-col"></div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-4 col-sm-6 margin-50px-bottom sm-margin-30px-bottom">
+                        <div class="portfolio-item">
+                            <div class="demo-grid-wrapper">
+                                <a class="demo-grid-item-img-link" href="home-default.html" target="_blank">
+                                    <div class="demo-grid-item-img"><img src="img/demos/niche/1.jpg">
+                                    </div>
+                                </a>
+                                <h4 class="text-center font-size20 sm-font-size18 margin-10px-top sm-margin-5px-top no-margin-bottom"><a href="home-default.html" target="_blank">Main Demo</a></h4></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 margin-50px-bottom sm-margin-30px-bottom">
+                        <div class="portfolio-item">
+                            <div class="demo-grid-wrapper">
+                                <a class="demo-grid-item-img-link" href="home-corporate-1.html" target="_blank">
+                                    <div class="demo-grid-item-img"><img src="img/demos/niche/2.jpg">
+                                        <div class="demo-grid-item-overlay"></div>
+                                    </div>
+                                </a>
+                                <h4 class="text-center font-size20 sm-font-size18 margin-10px-top sm-margin-5px-top no-margin-bottom"><a href="home-corporate-1.html" target="_blank">Corporate 1</a></h4></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 margin-50px-bottom sm-margin-30px-bottom">
+                        <div class="portfolio-item">
+                            <div class="demo-grid-wrapper">
+                                <a class="demo-grid-item-img-link" href="home-creative-agency.html" target="_blank">
+                                    <div class="demo-grid-item-img"><img src="img/demos/niche/7.jpg">
+                                        <div class="demo-grid-item-overlay"></div>
+                                    </div>
+                                </a>
+                                <h4 class="text-center font-size20 sm-font-size18 margin-10px-top sm-margin-5px-top no-margin-bottom"><a href="home-creative-agency.html" target="_blank">Creative Agency</a></h4></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 margin-50px-bottom sm-margin-30px-bottom">
+                        <div class="portfolio-item">
+                            <div class="demo-grid-wrapper">
+                                <a class="demo-grid-item-img-link" href="home-corporate-2.html" target="_blank">
+                                    <div class="demo-grid-item-img"><img src="img/demos/niche/3.jpg">
+                                        <div class="demo-grid-item-overlay"></div>
+                                    </div>
+                                </a>
+                                <h4 class="text-center font-size20 sm-font-size18 margin-10px-top sm-margin-5px-top no-margin-bottom"><a href="home-corporate-2.html" target="_blank">Multipurpose</a></h4></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 margin-50px-bottom sm-margin-30px-bottom">
+                        <div class="portfolio-item">
+                            <div class="demo-grid-wrapper">
+                                <a class="demo-grid-item-img-link" href="home-corporate-3.html" target="_blank">
+                                    <div class="demo-grid-item-img"><img src="img/demos/niche/4.jpg">
+                                        <div class="demo-grid-item-overlay"></div>
+                                    </div>
+                                </a>
+                                <h4 class="text-center font-size20 sm-font-size18 margin-10px-top sm-margin-5px-top no-margin-bottom"><a href="home-corporate-3.html" target="_blank">Business</a></h4></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 margin-50px-bottom sm-margin-30px-bottom">
+                        <div class="portfolio-item">
+                            <div class="demo-grid-wrapper">
+                                <a class="demo-grid-item-img-link" href="home-corporate-5.html" target="_blank">
+                                    <div class="demo-grid-item-img"><img src="img/demos/niche/6.jpg">
+                                        <div class="demo-grid-item-overlay"></div>
+                                    </div>
+                                </a>
+                                <h4 class="text-center font-size20 sm-font-size18 margin-10px-top sm-margin-5px-top no-margin-bottom"><a href="home-corporate-5.html" target="_blank">Finance</a></h4></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 margin-50px-bottom sm-margin-30px-bottom">
+                        <div class="portfolio-item">
+                            <div class="demo-grid-wrapper">
+                                <a class="demo-grid-item-img-link" href="home-corporate-4.html" target="_blank">
+                                    <div class="demo-grid-item-img"><img src="img/demos/niche/5.jpg">
+                                        <div class="demo-grid-item-overlay"></div>
+                                    </div>
+                                </a>
+                                <h4 class="text-center font-size20 sm-font-size18 margin-10px-top sm-margin-5px-top no-margin-bottom"><a href="home-corporate-4.html" target="_blank">Corporate 2</a></h4></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 sm-margin-30px-bottom">
+                        <div class="portfolio-item">
+                            <div class="demo-grid-wrapper">
+                                <a class="demo-grid-item-img-link" href="home-construction.html" target="_blank">
+                                    <div class="demo-grid-item-img"><img src="img/demos/niche/8.jpg">
+                                        <div class="demo-grid-item-overlay"></div>
+                                    </div>
+                                </a>
+                                <h4 class="text-center font-size20 sm-font-size18 margin-10px-top sm-margin-5px-top no-margin-bottom"><a href="home-construction.html" target="_blank">Construction</a></h4></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 margin-50px-bottom sm-margin-30px-bottom">
+                        <div class="portfolio-item">
+                            <div class="demo-grid-wrapper">
+                                <a class="demo-grid-item-img-link" href="home-interior.html" target="_blank">
+                                    <div class="demo-grid-item-img"><img src="img/demos/niche/9.jpg">
+                                        <div class="demo-grid-item-overlay"></div>
+                                    </div>
+                                </a>
+                                <h4 class="text-center font-size20 sm-font-size18 margin-10px-top sm-margin-5px-top no-margin-bottom"><a href="home-interior.html" target="_blank">Interior Design</a></h4></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 margin-50px-bottom sm-margin-30px-bottom">
+                        <div class="portfolio-item">
+                            <div class="demo-grid-wrapper">
+                                <a class="demo-grid-item-img-link" href="home-medical.html" target="_blank">
+                                    <div class="demo-grid-item-img"><img src="img/demos/niche/10.jpg">
+                                        <div class="demo-grid-item-overlay"></div>
+                                    </div>
+                                </a>
+                                <h4 class="text-center font-size20 sm-font-size18 margin-10px-top sm-margin-5px-top no-margin-bottom"><a href="home-medical.html" target="_blank">Health &amp; Medical</a></h4></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 margin-50px-bottom sm-margin-30px-bottom">
+                        <div class="portfolio-item">
+                            <div class="demo-grid-wrapper">
+                                <a class="demo-grid-item-img-link" href="home-tour.html" target="_blank">
+                                    <div class="demo-grid-item-img"><img src="img/demos/niche/11.jpg">
+                                        <div class="demo-grid-item-overlay"></div>
+                                    </div>
+                                </a>
+                                <h4 class="text-center font-size20 sm-font-size18 margin-10px-top sm-margin-5px-top no-margin-bottom"><a href="home-tour.html" target="_blank">Tour &amp; Travels</a></h4></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 margin-50px-bottom sm-margin-30px-bottom">
+                        <div class="portfolio-item">
+                            <div class="demo-grid-wrapper">
+                                <a class="demo-grid-item-img-link" href="home-shop-1.html" target="_blank">
+                                    <div class="demo-grid-item-img"><img src="img/demos/niche/12.jpg">
+                                        <div class="demo-grid-item-overlay"></div>
+                                    </div>
+                                </a>
+                                <h4 class="text-center font-size20 sm-font-size18 margin-10px-top sm-margin-5px-top no-margin-bottom"><a href="home-shop-1.html" target="_blank">Shop 01</a></h4></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 xs-margin-30px-bottom">
+                        <div class="portfolio-item">
+                            <div class="demo-grid-wrapper">
+                                <a class="demo-grid-item-img-link" href="home-shop-2.html" target="_blank">
+                                    <div class="demo-grid-item-img"><img src="img/demos/niche/13.jpg">
+                                        <div class="demo-grid-item-overlay"></div>
+                                    </div>
+                                </a>
+                                <h4 class="text-center font-size20 sm-font-size18 margin-10px-top sm-margin-5px-top no-margin-bottom"><a href="home-shop-2.html" target="_blank">Shop 02</a></h4></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6">
+                        <div class="portfolio-item">
+                            <div class="demo-grid-wrapper">
+                                <a class="demo-grid-item-img-link" href="javascript:void(0)">
+                                    <div class="demo-grid-item-img"><img src="img/demos/comin-soon.jpg">
+                                        <div class="demo-grid-item-overlay"></div>
+                                    </div>
+                                </a>
+                                <h4 class="text-center font-size20 sm-font-size18 margin-10px-top sm-margin-5px-top no-margin-bottom"><a href="javascript:void(0)">Coming Soon!</a></h4></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end demo section -->
+
+    <!-- start demo section -->
+    <section class="bg-light-gray">
+        <div class="container-fluid">
+            <div class="padding-eight-lr">
+                <div class="row">
+                    <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 center-col margin-70px-bottom sm-margin-40px-bottom xs-margin-30px-bottom text-center last-paragraph-no-margin">
+                        <h3 class="alt-font font-weight-800 text-uppercase margin-15px-bottom">Admin Dashboard</h3>
+                        <div class="separator-line-horrizontal-medium-light2 bg-black center-col"></div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-4 col-sm-6 margin-50px-bottom sm-margin-30px-bottom">
+                        <div class="portfolio-item">
+                            <div class="demo-grid-wrapper">
+                                <a class="demo-grid-item-img-link" href="admin-template/index.html" target="_blank">
+                                    <div class="demo-grid-item-img"><img src="img/demos/admin-template/1.jpg">
+                                        <div class="demo-grid-item-overlay"></div>
+                                    </div>
+                                </a>
+                                <h4 class="text-center font-size20 sm-font-size18 margin-10px-top sm-margin-5px-top no-margin-bottom"><a href="demos/startup-agency/index.html" target="_blank">Admin Dashboard</a></h4></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 margin-50px-bottom sm-margin-30px-bottom">
+                        <div class="portfolio-item">
+                            <div class="demo-grid-wrapper">
+                                <a class="demo-grid-item-img-link" href="admin-template/profile.html" target="_blank">
+                                    <div class="demo-grid-item-img"><img src="img/demos/admin-template/2.jpg">
+                                        <div class="demo-grid-item-overlay"></div>
+                                    </div>
+                                </a>
+                                <h4 class="text-center font-size20 sm-font-size18 margin-10px-top sm-margin-5px-top no-margin-bottom"><a href="admin-template/profile.html" target="_blank">Profile Page</a></h4></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 sm-margin-30px-bottom">
+                        <div class="portfolio-item">
+                            <div class="demo-grid-wrapper">
+                                <a class="demo-grid-item-img-link" href="admin-template/email.html" target="_blank">
+                                    <div class="demo-grid-item-img"><img src="img/demos/admin-template/3.jpg">
+                                        <div class="demo-grid-item-overlay"></div>
+                                    </div>
+                                </a>
+                                <h4 class="text-center font-size20 sm-font-size18 margin-10px-top sm-margin-5px-top no-margin-bottom"><a href="admin-template/email.html" target="_blank">Email Page</a></h4></div>
+                        </div>
+                    </div>                    
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end demo section -->
+
+    <!-- start demo section -->
+    <section>
+        <div class="container-fluid">
+            <div class="padding-eight-lr">
+                <div class="row">
+                    <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 center-col margin-70px-bottom sm-margin-40px-bottom xs-margin-30px-bottom text-center last-paragraph-no-margin">
+                        <h3 class="alt-font font-weight-800 text-uppercase margin-15px-bottom">MultiPage Demos</h3>
+                        <div class="separator-line-horrizontal-medium-light2 bg-black center-col"></div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-4 col-sm-6 margin-50px-bottom sm-margin-30px-bottom">
+                        <div class="portfolio-item">
+                            <div class="demo-grid-wrapper">
+                                <a class="demo-grid-item-img-link" href="demos/startup-agency/index.html" target="_blank">
+                                    <div class="demo-grid-item-img"><img src="img/demos/multi-page/1.jpg">
+                                        <div class="demo-grid-item-overlay"></div>
+                                    </div>
+                                </a>
+                                <h4 class="text-center font-size20 sm-font-size18 margin-10px-top sm-margin-5px-top no-margin-bottom"><a href="demos/startup-agency/index.html" target="_blank">Startup Agency</a></h4></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 margin-50px-bottom sm-margin-30px-bottom">
+                        <div class="portfolio-item">
+                            <div class="demo-grid-wrapper">
+                                <a class="demo-grid-item-img-link" href="demos/university/index.html" target="_blank">
+                                    <div class="demo-grid-item-img"><img src="img/demos/multi-page/2.jpg">
+                                        <div class="demo-grid-item-overlay"></div>
+                                    </div>
+                                </a>
+                                <h4 class="text-center font-size20 sm-font-size18 margin-10px-top sm-margin-5px-top no-margin-bottom"><a href="demos/university/index.html" target="_blank">University</a></h4></div>
+                        </div>
+                    </div>   
+                    <div class="col-lg-4 col-sm-6 margin-50px-bottom sm-margin-30px-bottom">
+                        <div class="portfolio-item">
+                            <div class="demo-grid-wrapper">
+                                <a class="demo-grid-item-img-link" href="demos/charity/index.html" target="_blank">
+                                    <div class="demo-grid-item-img"><img src="img/demos/multi-page/3.jpg">
+                                        <div class="demo-grid-item-overlay"></div>
+                                    </div>
+                                </a>
+                                <h4 class="text-center font-size20 sm-font-size18 margin-10px-top sm-margin-5px-top no-margin-bottom"><a href="demos/charity/index.html" target="_blank">Charity - NonProfit Template</a></h4></div>
+                        </div>
+                    </div>                                           
+                    <div class="col-lg-4 col-sm-6">
+                        <div class="portfolio-item">
+                            <div class="demo-grid-wrapper">
+                                <a class="demo-grid-item-img-link" href="javascript:void(0)">
+                                    <div class="demo-grid-item-img"><img src="img/demos/comin-soon.jpg">
+                                        <div class="demo-grid-item-overlay"></div>
+                                    </div>
+                                </a>
+                                <h4 class="text-center font-size20 sm-font-size18 margin-10px-top sm-margin-5px-top no-margin-bottom"><a href="javascript:void(0)">Coming Soon!</a></h4></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end demo section -->
+
+    <!-- start demo section -->
+    <section class="bg-light-gray">
+        <div class="container-fluid">
+            <div class="padding-eight-lr">
+                <div class="row">
+                    <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 center-col margin-70px-bottom sm-margin-40px-bottom xs-margin-30px-bottom text-center last-paragraph-no-margin">
+                        <h3 class="alt-font font-weight-800 text-uppercase margin-15px-bottom">One Page Demos</h3>
+                        <div class="separator-line-horrizontal-medium-light2 bg-black center-col"></div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-4 col-sm-6 margin-50px-bottom sm-margin-30px-bottom">
+                        <div class="portfolio-item">
+                            <div class="demo-grid-wrapper">
+                                <a class="demo-grid-item-img-link" href="one-page/app-landing/index.html" target="_blank">
+                                    <div class="demo-grid-item-img"><img src="img/demos/one-page/1.jpg">
+                                        <div class="demo-grid-item-overlay"></div>
+                                    </div>
+                                </a>
+                                <h4 class="text-center font-size20 sm-font-size18 margin-10px-top sm-margin-5px-top no-margin-bottom"><a href="one-page/app-landing/index.html" target="_blank">App Landing</a></h4></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 margin-50px-bottom sm-margin-30px-bottom">
+                        <div class="portfolio-item">
+                            <div class="demo-grid-wrapper">
+                                <a class="demo-grid-item-img-link" href="one-page/portfolio/index.html" target="_blank">
+                                    <div class="demo-grid-item-img"><img src="img/demos/one-page/2.jpg">
+                                        <div class="demo-grid-item-overlay"></div>
+                                    </div>
+                                </a>
+                                <h4 class="text-center font-size20 sm-font-size18 margin-10px-top sm-margin-5px-top no-margin-bottom"><a href="one-page/portfolio/index.html" target="_blank">Portfolio</a></h4></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 margin-50px-bottom sm-margin-30px-bottom">
+                        <div class="portfolio-item">
+                            <div class="demo-grid-wrapper">
+                                <a class="demo-grid-item-img-link" href="one-page/restaurant/index.html" target="_blank">
+                                    <div class="demo-grid-item-img"><img src="img/demos/one-page/3.jpg">
+                                        <div class="demo-grid-item-overlay"></div>
+                                    </div>
+                                </a>
+                                <h4 class="text-center font-size20 sm-font-size18 margin-10px-top sm-margin-5px-top no-margin-bottom"><a href="one-page/restaurant/index.html" target="_blank">Restaurant</a></h4></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6">
+                        <div class="portfolio-item">
+                            <div class="demo-grid-wrapper">
+                                <a class="demo-grid-item-img-link" href="javascript:void(0)">
+                                    <div class="demo-grid-item-img"><img src="img/demos/comin-soon.jpg">
+                                        <div class="demo-grid-item-overlay"></div>
+                                    </div>
+                                </a>
+                                <h4 class="text-center font-size20 sm-font-size18 margin-10px-top sm-margin-5px-top no-margin-bottom"><a href="javascript:void(0)">Coming Soon!</a></h4></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end demo section -->
+
+    <!-- start feature section -->
+    <section id="features">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 center-col margin-70px-bottom sm-margin-40px-bottom xs-margin-30px-bottom text-center last-paragraph-no-margin">
+                    <h3 class="alt-font font-weight-700 text-uppercase margin-15px-bottom">Features</h3>
+                    <div class="separator-line-horrizontal-medium-light2 bg-black center-col"></div>
+                </div>
+            </div>
+
+            <div class="row margin-20px-bottom">
+                <div class="col-lg-4 col-md-12 margin-20px-bottom">
+                    <div class="bg-theme text-center bg-light-gray padding-25px-all border height-100">
+                        <h5 class="text-white text-uppercase text-medium margin-10px-bottom font-size20 text-dark-gray">20+ Home Styles</h5>
+                        <p class="no-margin-bottom text-white">Fabrex template have 20+ home page variations. They have header and banner options as well. You can easily customize home style as well.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12 margin-20px-bottom">
+                    <div class="bg-theme text-center bg-light-gray padding-25px-all border height-100">
+                        <h5 class="text-white text-uppercase text-medium margin-10px-bottom font-size20 text-dark-gray">Color Variations</h5>
+                        <p class="no-margin-bottom text-white">Fabrex template have color change option available. They have eight different colors. You can set easily your color as well.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12 margin-20px-bottom">
+                    <div class="bg-theme text-center bg-light-gray padding-25px-all border height-100">
+                        <h5 class="text-white text-uppercase text-medium margin-10px-bottom font-size20 text-dark-gray">Layout Options</h5>
+                        <p class="no-margin-bottom text-white">Fabrex template have boxed and wide layout option available. You can also set background patterns as well in the boxed layout.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-4 col-md-12">
+                    <div class="bg-black text-center border padding-25px-tb padding-10px-lr margin-20px-bottom box-shadow">
+                        <h5 class="font-size15 text-white font-weight-400  no-margin-bottom">Bootstrap 4.x</h5>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <div class="bg-black text-center border padding-25px-tb padding-10px-lr margin-20px-bottom box-shadow">
+                        <h5 class="font-size15  text-white font-weight-400  no-margin-bottom">Revolution Slider</h5>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <div class="bg-black text-center border padding-25px-tb padding-10px-lr margin-20px-bottom box-shadow">
+                        <h5 class="font-size15 text-white font-weight-400  no-margin-bottom">Boxed and Full Layout</h5>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <div class="bg-black text-center border padding-25px-tb padding-10px-lr margin-20px-bottom box-shadow">
+                        <h5 class="font-size15 text-white font-weight-400  no-margin-bottom">Unique Headers</h5>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <div class="bg-black text-center border padding-25px-tb padding-10px-lr margin-20px-bottom box-shadow">
+                        <h5 class="font-size15  text-white font-weight-400  no-margin-bottom">8+ Footer Styles</h5>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <div class="bg-black text-center border padding-25px-tb padding-10px-lr margin-20px-bottom box-shadow">
+                        <h5 class="font-size15 text-white font-weight-400  no-margin-bottom">Sass Available</h5>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <div class="bg-black text-center border padding-25px-tb padding-10px-lr margin-20px-bottom box-shadow">
+                        <h5 class="font-size15 text-white font-weight-400  no-margin-bottom">Ecommerce Templates</h5>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <div class="bg-black text-center border padding-25px-tb padding-10px-lr margin-20px-bottom box-shadow">
+                        <h5 class="font-size15 text-white font-weight-400  no-margin-bottom">Search Functionality</h5>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <div class="bg-black text-center border padding-25px-tb padding-10px-lr margin-20px-bottom box-shadow">
+                        <h5 class="font-size15 text-white font-weight-400  no-margin-bottom">Working Contact Form</h5>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <div class="bg-black text-center border padding-25px-tb padding-10px-lr margin-20px-bottom box-shadow">
+                        <h5 class="font-size15 text-white font-weight-400  no-margin-bottom">Simple and Creative Design</h5>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <div class="bg-black text-center border padding-25px-tb padding-10px-lr margin-20px-bottom box-shadow">
+                        <h5 class="font-size15 text-white font-weight-400  no-margin-bottom">Google Fonts</h5>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <div class="bg-black text-center border padding-25px-tb padding-10px-lr margin-20px-bottom box-shadow">
+                        <h5 class="font-size15 text-white font-weight-400  no-margin-bottom">W3C Valid Markup</h5>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <div class="bg-black text-center border padding-25px-tb padding-10px-lr margin-20px-bottom box-shadow">
+                        <h5 class="font-size15 text-white font-weight-400  no-margin-bottom">Fully Responsive</h5>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <div class="bg-black text-center border padding-25px-tb padding-10px-lr margin-20px-bottom box-shadow">
+                        <h5 class="font-size15 text-white font-weight-400  no-margin-bottom">Cross Browser Compatibility</h5>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <div class="bg-black text-center border padding-25px-tb padding-10px-lr margin-20px-bottom box-shadow">
+                        <h5 class="font-size15 text-white font-weight-400  no-margin-bottom">Font Icons</h5>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <div class="bg-black text-center border padding-25px-tb padding-10px-lr margin-20px-bottom box-shadow">
+                        <h5 class="font-size15 text-white font-weight-400  no-margin-bottom">Seo Friendly Clean Code</h5>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <div class="bg-black text-center border padding-25px-tb padding-10px-lr margin-20px-bottom box-shadow">
+                        <h5 class="font-size15 text-white font-weight-400  no-margin-bottom">Well Documented</h5>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <div class="bg-black text-center border padding-25px-tb padding-10px-lr margin-20px-bottom box-shadow">
+                        <h5 class="font-size15 text-white font-weight-400  no-margin-bottom">Neat, Clean and Simple Design</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end feature section -->
+
+    <!-- start footer section -->
+    <footer class="no-padding">
+        <div class="footer-bar">
+            <div class="container">
+                <p>&copy; 2019 Fabrex is Powered by Chitrakoot Web</p>
+            </div>
+        </div>
+    </footer>
+    <!-- end footer section -->
+
+    <!-- start scroll to top -->
+    <a href="javascript:void(0)" class="scroll-to-top"><i class="fas fa-angle-up" aria-hidden="true"></i></a>
+    <!-- end scroll to top -->
+
+    <!-- all js include start -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.min.js"></script>
+
+    <!-- modernizr js -->
+    <script src="js/modernizr.js"></script>
+
+    <!-- bootstrap -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- jquery.counterup.min -->
+    <script src="js/jquery.counterup.min.js"></script>
+
+    <!-- waypoints js -->
+    <script src="js/waypoints.min.js"></script>
+
+    <!-- animated.headline -->
+    <script src="js/animated.headline.js"></script>
+
+    <!-- custom scripts -->
+    <script type="text/javascript">
+        var $window = $(window);
+
+        $(document).ready(function() {
+            $("a[href^='#']").click(function(e) {
+                e.preventDefault();
+
+                var position = $($(this).attr("href")).offset().top;
+
+                $("body, html").animate({
+                    scrollTop: position
+                }, 1000);
+            });
+
+            // scroll to top
+            $window.on('scroll', function() {
+                if ($(this).scrollTop() > 500) {
+                    $(".scroll-to-top").fadeIn(400);
+
+                } else {
+                    $(".scroll-to-top").fadeOut(400);
+                }
+            });
+
+            $(".scroll-to-top").on('click', function(event) {
+                event.preventDefault();
+                $("html, body").animate({
+                    scrollTop: 0
+                }, 600);
+            });
+
+            // Counter
+            $('.countup').counterUp({
+                delay: 25,
+                time: 2000
+            });
+
+        });
+    </script>
+
+    <!-- all js include end -->
+
+</body>
+
+</html>

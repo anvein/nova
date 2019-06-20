@@ -1,0 +1,40 @@
+/*-----------------------------------------------------------------------------------
+
+    Theme Name: Fabrex - Restaurant and Cafe
+    Description: Onepage Restaurant and Cafe Template
+    Author: chitrakootweb
+    Version: 3.2
+
+-----------------------------------------------------------------------------------*/
+
+/* ----------------------------------------------------------------
+			[ All Css Plugins & Helper Classes File ]
+-----------------------------------------------------------------*/
+
+/* == bootstrap == */
+@import url("../../../css/plugins/bootstrap.min.css");
+
+/* == animate Headline == */
+@import url("../../../css/plugins/animate.css");
+
+/* == fontawesome icon font == */
+@import url("../../../css/plugins/fontawesome-all.min.css");
+
+/* == magnific-popup == */
+@import url("../../../css/plugins/magnific-popup.css");
+
+/* == date-picker == */
+@import url("../../../css/plugins/datepicker.css");
+
+/* == clock-picker == */
+@import url("../../../css/plugins/clockpicker.css");
+
+/* == owl.carousel == */
+@import url("../../../css/plugins/owl.carousel.min.css");
+@import url("../../../css/plugins/owl.theme.default.min.css");
+
+/* == helper classes == */
+@import url("../../../css/plugins/default.css");
+
+/* == mailform == */
+@import url("../../../css/plugins/mailform.css");
