@@ -1,4 +1,4 @@
-FROM mysql:8.0
+FROM mysql:5.7
 
 # change uid for nginx user to avoid problems with host permissions
 ARG HOST_USER_ID

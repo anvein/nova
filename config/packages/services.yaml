@@ -1,0 +1,4 @@
+parameters:
+  app.path.course_covers: /uploads/images/course/cover
+  app.path.course_breadcrumbs: /uploads/images/course/breadcrumbs
+  app.path.course_lesson_cover: /uploads/images/course_lesson/cover

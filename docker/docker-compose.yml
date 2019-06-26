@@ -3,6 +3,7 @@ version: '2'
 services:
     mysql:
         container_name: ${DOCKER_CONTAINERS_PREFIX}-db
+        privileged: true
         user: "${DOCKER_USER_ID}:${DOCKER_GROUP_ID}"
         build:
             context: mysql
@@ -31,6 +32,8 @@ services:
                 HOST_GROUP_ID: ${DOCKER_GROUP_ID}
         volumes:
             - ${DOCKER_APP_PATH}:/var/www:cached
+        links:
+            - mysql
 
     nginx:
         container_name: ${DOCKER_CONTAINERS_PREFIX}-nginx

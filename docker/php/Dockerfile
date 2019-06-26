@@ -35,7 +35,7 @@ RUN  docker-php-ext-configure gd \
   docker-php-ext-install -j${NPROC} gd && \
   apk del --no-cache freetype-dev libpng-dev libjpeg-turbo-dev
 
-RUN docker-php-ext-install intl opcache pdo_pgsql zip pcntl sockets exif
+RUN docker-php-ext-install intl opcache pdo_mysql zip pcntl sockets exif
 
 RUN docker-php-source extract \
     && pecl install xdebug \

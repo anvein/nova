@@ -1,0 +1,105 @@
+easy_admin:
+  site_name: "NOVA Digital Agency"
+
+  user:
+    display_name: true
+    display_avatar: true
+    name_property_path: 'fullName'
+    avatar_property_path: 'gravatar'
+
+  list:
+    max_results: 30
+
+  design:
+    form_theme:
+      - '@EasyAdmin/form/bootstrap_4.html.twig'
+#      - '@VichUploader/Form/fields.html.twig'
+
+    brand_color: '#8a2be2'
+    rtl: false
+    assets:
+      css:
+        - 'bundles/easyadmin/bootstrap-all.css'
+      js:
+        - 'bundles/easyadmin/bootstrap-all.js'
+      favicon: '/assets/img/favicons/favicon.png'
+
+
+  entities:
+
+    Course:
+      class: App\Entity\Course
+      label: 'Курс'
+
+      list:
+        title: 'Список курсов'
+        fields:
+          - id
+          - active
+          - slug
+          - sort
+          - title
+          - description
+          - { property: 'coverImage', type: 'image', base_path: '%app.path.course_covers%' }
+
+      show:
+        title: 'Курс (#%%entity_id%%)'
+        show:
+        max_results: 10
+
+      form:
+        fields:
+          - {property: active, label: 'Активность'}
+          - {property: sort, label: 'Индекс сортировки'}
+          - {property: slug, label: 'Символьный код', help: 'Используется в URL'}
+          - {property: type, label: 'Тип курса'}
+          - {property: title, label: 'Наименование'}
+          - {property: date, label: 'Дата выпуска'}
+          - {property: author, label: 'Автор'}
+          - {property: description, label: 'Описание'}
+          - {property: coverImageFile, type: 'vich_image', label: 'Обложка'}
+          - {property: breadcrumbImageFile, type: 'vich_image', label: 'Картинка на хлебных крошках'}
+
+      edit:
+        title: 'Редактирование курса (#%%entity_id%%)'
+
+
+
+    CourseLesson:
+      class: App\Entity\CourseLesson
+      label: 'Урок курса'
+
+      list:
+        fields:
+          - {property: active, label: 'Активность'}
+          - {property: slug, label: 'Код'}
+          - {property: sort, label: 'Индекс сортировки'}
+          - {property: title, label: 'Название'}
+          - {property: "course", label: 'Курс', type_options: {property_path: "course.title"}}
+
+      form:
+        fields:
+          - { type: 'group', columns: 12, label: 'Настройки элемента', icon: 'cogs' }
+          - { property: active, label: 'Активность'}
+          - { property: slug, label: 'Код элемента', help: 'Используется в URL' }
+          - { property: sort, label: 'Индекс сортировки'}
+
+          - { type: 'group', columns: 6, label: 'Общее', icon: 'address-card-o' }
+          - { property: number, label: 'Номер урока (в рамках курса)', help: 'Оставьте пустым, если урок не входит в курс' }
+          - { property: title, label: 'Название'}
+          - { property: date, label: 'Дата выхода', type_options: { widget: 'single_text'} }
+          - { property: course, label: 'Курс', help: 'Оставьте пустым, если не входит в курс' }
+          - { property: descriptionPreview, label: 'Описание в списке' }
+          - { property: videoLink, label: 'Ссылка на видео (youtube)', help: 'Оставьте пустым, если не надо выводить видео' }
+          - { property: coverFile, type: 'vich_image', label: 'Картинка', help: 'Если указано видео, то будет выведено видео' }
+
+          - { type: 'group', columns: 6, label: 'Деталка', icon: 'address-card' }
+          - {property: descriptionDetail, label: 'Детальное описание', help: 'Оставьте пустым, если совпадает с описанием в списке'}
+          - { property: prevLesson, label: 'Предыдущий урок в рамках курса' }
+          - { property: nextLesson, label: 'Следующий урок в рамках курса' }
+
+      new:
+        title: 'Добавление нового урока'
+
+      edit:
+        title: 'Редактирование урока #%%entity_id%%'

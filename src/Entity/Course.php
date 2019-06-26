@@ -4,16 +4,25 @@ declare(strict_types=1);
 
 namespace App\Entity;
 
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 use DateTimeInterface;
 use DateTime;
 
-// todo - прикрытить валидаторы
+// todo - прикрутить валидаторы
+
+// todo - задать названия полям на русском в админке
+// todo - объединить поля в админке по группам
+// todo - переименовать сущность в админке + сменить значок
+// todo - объединить сущности в группы
 
 /**
  * Сущность "Курс".
  *
  * @ORM\Entity(repositoryClass="App\Repository\CourseRepository")
+ * @Vich\Uploadable
  */
 class Course
 {
@@ -49,7 +58,7 @@ class Course
     /**
      * Код элемента (используется в url).
      *
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, unique=true)
      *
      * @var string
      *
@@ -88,6 +97,7 @@ class Course
      * Описание курса.
      *
      * @ORM\Column(type="text")
+     * @Assert\NotBlank()
      *
      * @var string
      */
@@ -102,9 +112,60 @@ class Course
      */
     private $type = '';
 
+    /**
+     * Название файла обложки.
+     *
+     * @ORM\Column(type="string", length=255, nullable=true)
+     *
+     * @var string|null
+     */
+    private $coverImage;
+
+
+//* @Assert\NotBlank(message="Необходимо обязательно указать Обложку")
+
+    /**
+     * Файл обложки курса.
+     *
+     * @Vich\UploadableField(mapping="course_covers", fileNameProperty="coverImage")
+     * @Assert\Image()
+     *
+     * @var File|null
+     */
+    private $coverImageFile;
+
+    /**
+     * Дата и время последнего обновления.
+     *
+     * @ORM\Column(type="datetime", options={"default" : "2019-06-01 00:00:00"})
+     *
+     * @var DateTimeInterface
+     */
+    private $updatedAt;
+
+    /**
+     * Название картинки для хлебных крошек.
+     *
+     * @ORM\Column(type="string", length=255, nullable=true)
+     *
+     * @var string|null
+     */
+    private $breadcrumbImageName;
+
+    /**
+     * Файл для хлебных крошек (содержимое).
+     *
+     * @Vich\UploadableField(mapping="course_breadcrumbs", fileNameProperty="breadcrumbImageName")
+     * @Assert\Image()
+     *
+     * @var File|null
+     */
+    private $breadcrumbImageFile;
+
     public function __construct()
     {
         $this->date = new DateTime;
+        $this->updatedAt = new DateTime;
     }
 
     public function getId(): ?int
@@ -207,4 +268,76 @@ class Course
 
         return $this;
     }
+
+    public function __toString(): string
+    {
+        return $this->getTitle();
+    }
+
+    public function getCoverImage(): ?string
+    {
+        return $this->coverImage;
+    }
+
+    public function setCoverImage(string $coverImage = null): self
+    {
+        $this->coverImage = $coverImage;
+
+        return $this;
+    }
+
+    public function getCoverImageFile(): ?File
+    {
+        return $this->coverImageFile;
+    }
+
+    public function setCoverImageFile(?File $coverImageFile): self
+    {
+        $this->coverImageFile = $coverImageFile;
+        if ($coverImageFile) {
+            $this->updatedAt = new DateTime('now');
+        }
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): DateTimeInterface
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(DateTimeInterface $updatedAt): self
+    {
+        $this->updatedAt = new DateTime;
+
+        return $this;
+    }
+
+    public function getBreadcrumbImageName(): ?string
+    {
+        return $this->breadcrumbImageName;
+    }
+
+    public function setBreadcrumbImageName(?string $breadcrumbImageName): self
+    {
+        $this->breadcrumbImageName = $breadcrumbImageName;
+
+        return $this;
+    }
+
+    public function getBreadcrumbImageFile(): ?File
+    {
+        return $this->breadcrumbImageFile;
+    }
+
+    public function setBreadcrumbImageFile(?File $breadcrumbImageFile): self
+    {
+        $this->breadcrumbImageFile = $breadcrumbImageFile;
+        if ($breadcrumbImageFile) {
+            $this->updatedAt = new DateTime('now');
+        }
+
+        return $this;
+    }
+
 }
