@@ -7,6 +7,8 @@ use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 /**
+ * Репозиторий уроков.
+ *
  * @method CourseLesson|null find($id, $lockMode = null, $lockVersion = null)
  * @method CourseLesson|null findOneBy(array $criteria, array $orderBy = null)
  * @method CourseLesson[]    findAll()
@@ -18,6 +20,61 @@ class CourseLessonRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, CourseLesson::class);
     }
+
+    /**
+     * Возвращает активные уроки курса по его коду. И сортирует уроки по дате выхода и индексу сортировки.
+     *
+     * @param string $courseSlug
+     *
+     * @return CourseLesson[]
+     */
+    public function getActiveLessonsByCourseSlug(string $courseSlug): array
+    {
+        return $this->createQueryBuilder('courseLesson')
+            ->andWhere('courseLesson.active = true')
+            ->orderBy('courseLesson.date', 'ASC')
+            ->orderBy('courseLesson.sort', 'ASC')
+            ->join('courseLesson.course', 'course')
+            ->andWhere('course.slug = :slug')
+            ->setParameter('slug', $courseSlug)
+            ->setMaxResults(30)
+            ->getQuery()
+            ->getResult();
+    }
+
+    /**
+     * Возвращает все активные уроки с сортировкой по дате и индексу сортировки.
+     *
+     * @return CourseLesson[]
+     */
+    public function getAllActiveLessons(): array
+    {
+        return $this->createQueryBuilder('courseLesson')
+            ->andWhere('courseLesson.active = true')
+            ->orderBy('courseLesson.date', 'ASC')
+            ->orderBy('courseLesson.sort', 'ASC')
+            ->setMaxResults(30)
+            ->getQuery()
+            ->getResult();
+    }
+
+    /**
+     * Возвращает урок по slug'у.
+     *
+     * @param string $lessonSlug
+     *
+     * @return CourseLesson|null
+     */
+    public function getActiveLessonBySlug(string $lessonSlug): ?CourseLesson
+    {
+        return $this->createQueryBuilder('lesson')
+            ->where('lesson.active = true')
+            ->andWhere('lesson.slug = :slug')
+            ->setParameter('slug', $lessonSlug)
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
+
 
     // /**
     //  * @return CourseLesson[] Returns an array of CourseLesson objects

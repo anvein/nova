@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} Деталка урока {% endblock %}
+{% block title %} {{ lesson.title }} {% endblock %}
 
 {% block body %}
 
@@ -22,53 +22,65 @@
         </div>
     </section>
 
-    <section>
+    <section class="blogs">
         <div class="container">
             <div class="row">
-                <div class="col-md-12">
-                    <div class=blog-list-simple>
-                        <div class="row">
-                            <div class="col-md-12 margin-20px-bottom">
-                                <div class=blog-list-simple-img>
-                                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/KajzW-luaeY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                    {#<img alt=img src=img/blog/list-1.jpg>#}
+                <div class="col-12">
+                    <div class="posts">
+                        <div class="post">
+                            {% if lesson.videoLink is not empty %}
+                                <div class="post-img">
+                                    <iframe
+                                        width="100%"
+                                        height="100%"
+                                        src="{{ lesson.videoLink }}"
+                                        frameborder="0"
+                                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                        allowfullscreen>
+                                    </iframe>
                                 </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="blog-list-simple-text"><span>Business</span>
-                                    <h4>High Quality Services</h4>
+                            {% elseif lesson.coverFileName is not empty and lesson.viewCoverInDetail is same as(true) %}
+                                <div class="post-img">
+                                    <img src="{{ vich_uploader_asset(lesson, 'coverFile') }}" alt="">
+                                </div>
+                            {% endif %}
+                            <div class="content">
+                                <div class="post-meta">
+                                    <div class="post-title">
+                                        <h2>{% if lesson.number is not empty %}{{ lesson.number }}#{% endif %} {{ lesson.title }}</h2>
+                                    </div>
                                     <ul class="meta">
                                         <li>
                                             <a href="javascript:void(0);">
-                                                <i aria-hidden="true" class="fa fa-user"></i> Admin
+                                                <i class="fa fa-graduation-cap" aria-hidden="true"></i> {{ lesson.course.title }}
                                             </a>
                                         </li>
-                                        <li>
-                                            <a href="javascript:void(0);">
-                                                <i aria-hidden="true" class="fa fa-folder-open"></i> Business
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0);">
-                                                <i aria-hidden="true" class="fas fa-calendar-alt"></i> 6 FEB 2018
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0);">
-                                                <i aria-hidden="true" class="fa fa-tags"></i> blog
-                                            </a>
-                                        </li>
-                                    </ul>
-                                    <p>Exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. cillum fugiat eu fugiat nulla pariatur standard.Exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. cillum fugiat eu fugiat nulla pariatur standard business.
 
+                                        {% if lesson.date is not empty %}
+                                            <li>
+                                                <i class="fas fa-calendar-alt" aria-hidden="true"></i> {{ lesson.date | date('d M Y') }}
+                                            </li>
+                                        {% endif %}
+                                    </ul>
                                 </div>
+                                <div class="post-cont">
+                                    {% if lesson.descriptionDetail is not empty %}
+                                        {{ lesson.descriptionDetail | raw }}
+                                    {% else %}
+                                        <p>{{ lesson.descriptionPreview }}</p>
+                                    {% endif %}
+                                </div>
+                                {#<div class="share-post">
+                                    <span>Поделись статьей, если информация была полезна!</span>
+                                    <ul>
+                                        <li><a href="javascript:void(0);"><i class="fab fa-facebook-f"></i></a></li>
+                                    </ul>
+                                </div>#}
                             </div>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
-
 {% endblock %}

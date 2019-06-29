@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% set message = exception.message | default('Страница не найдена 😞') %}
+
+
+{% block title %} {{ message }} {% endblock %}
+
+{% block header_classes %}{% endblock %}
+
+{% block body %}
+    <section class="error-box bg-img" data-overlay-dark="0" data-background="{{ asset('../assets/img/bg/bg4.jpg') }} ">
+        <div class="error-box-text">
+            <h1>404</h1>
+            <h3>{{ message }}</h3>
+            <div class="margin-30px-top">
+                <a href="/" class="butn">
+                    <span>На главную</span>
+                </a>
+            </div>
+        </div>
+    </section>
+{% endblock %}

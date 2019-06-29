@@ -24,6 +24,15 @@ easy_admin:
         - 'bundles/easyadmin/bootstrap-all.js'
       favicon: '/assets/img/favicons/favicon.png'
 
+    menu:
+#      - label: 'Раздел "Курсы"'
+#        icon: 'graduation-cap'
+#        children:
+      - { label: 'Раздел "Курсы"'}
+      - { entity: Course, label: 'Курсы', icon: 'graduation-cap'}
+      - { entity: CourseLesson, label: 'Уроки', icon: 'list-alt'}
+      - { label: 'Перейти к разделу', route: 'courses_list', target: '_blank', icon: 'eye' }
+
 
   entities:
 
@@ -34,13 +43,13 @@ easy_admin:
       list:
         title: 'Список курсов'
         fields:
-          - id
-          - active
-          - slug
-          - sort
-          - title
-          - description
-          - { property: 'coverImage', type: 'image', base_path: '%app.path.course_covers%' }
+          - { property: 'id', label: 'ID' }
+          - { property: 'active', label: 'Активность' }
+          - { property: 'slug', label: 'Код' }
+          - { property: 'sort', label: 'Сортировка' }
+          - { property: 'title', label: 'Наименование' }
+          - { property: 'description', label: 'Описание' }
+          - { property: 'coverImage', type: 'image', base_path: '%app.path.course_covers%', label: 'Обложка' }
 
       show:
         title: 'Курс (#%%entity_id%%)'
@@ -50,8 +59,8 @@ easy_admin:
       form:
         fields:
           - {property: active, label: 'Активность'}
-          - {property: sort, label: 'Индекс сортировки'}
-          - {property: slug, label: 'Символьный код', help: 'Используется в URL'}
+          - {property: sort, label: 'Сортировка'}
+          - {property: slug, label: 'Код', help: 'Используется в URL'}
           - {property: type, label: 'Тип курса'}
           - {property: title, label: 'Наименование'}
           - {property: date, label: 'Дата выпуска'}
@@ -73,7 +82,7 @@ easy_admin:
         fields:
           - {property: active, label: 'Активность'}
           - {property: slug, label: 'Код'}
-          - {property: sort, label: 'Индекс сортировки'}
+          - {property: sort, label: 'Сортировка'}
           - {property: title, label: 'Название'}
           - {property: "course", label: 'Курс', type_options: {property_path: "course.title"}}
 
@@ -82,7 +91,7 @@ easy_admin:
           - { type: 'group', columns: 12, label: 'Настройки элемента', icon: 'cogs' }
           - { property: active, label: 'Активность'}
           - { property: slug, label: 'Код элемента', help: 'Используется в URL' }
-          - { property: sort, label: 'Индекс сортировки'}
+          - { property: sort, label: 'Сортировка'}
 
           - { type: 'group', columns: 6, label: 'Общее', icon: 'address-card-o' }
           - { property: number, label: 'Номер урока (в рамках курса)', help: 'Оставьте пустым, если урок не входит в курс' }
@@ -92,9 +101,10 @@ easy_admin:
           - { property: descriptionPreview, label: 'Описание в списке' }
           - { property: videoLink, label: 'Ссылка на видео (youtube)', help: 'Оставьте пустым, если не надо выводить видео' }
           - { property: coverFile, type: 'vich_image', label: 'Картинка', help: 'Если указано видео, то будет выведено видео' }
+          - { property: viewCoverInDetail, label: 'Выводить обложку на детальной' }
 
           - { type: 'group', columns: 6, label: 'Деталка', icon: 'address-card' }
-          - {property: descriptionDetail, label: 'Детальное описание', help: 'Оставьте пустым, если совпадает с описанием в списке'}
+          - { property: descriptionDetail, type: 'fos_ckeditor', label: 'Детальное описание', help: 'Оставьте пустым, если совпадает с описанием в списке'}
           - { property: prevLesson, label: 'Предыдущий урок в рамках курса' }
           - { property: nextLesson, label: 'Следующий урок в рамках курса' }
 

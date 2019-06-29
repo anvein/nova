@@ -60,20 +60,20 @@ class Course
      *
      * @ORM\Column(type="string", length=255, unique=true)
      *
-     * @var string
+     * @var string|null
      *
      * // todo - прикрутить валидатор
      */
-    private $slug = '';
+    private $slug;
 
     /**
      * Название курса.
      *
      * @ORM\Column(type="string", length=255)
      *
-     * @var string
+     * @var string|null
      */
-    private $title = '';
+    private $title;
 
     /**
      * Дата выхода курса.
@@ -87,11 +87,11 @@ class Course
     /**
      * Автор курса.
      *
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      *
-     * @var string
+     * @var string|null
      */
-    private $author = '';
+    private $author;
 
     /**
      * Описание курса.
@@ -99,18 +99,19 @@ class Course
      * @ORM\Column(type="text")
      * @Assert\NotBlank()
      *
-     * @var string
+     * @var string|null
      */
-    private $description = '';
+    private $description;
 
     /**
      * Тип курса.
      *
-     * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank()
+     * @ORM\Column(type="string", length=255, nullable=false)
      *
-     * @var string
+     * @var string|null
      */
-    private $type = '';
+    private $type;
 
     /**
      * Название файла обложки.
@@ -197,24 +198,24 @@ class Course
         return $this;
     }
 
-    public function getSlug(): string
+    public function getSlug(): ?string
     {
         return $this->slug;
     }
 
-    public function setSlug(string $slug): self
+    public function setSlug(?string $slug): self
     {
         $this->slug = $slug;
 
         return $this;
     }
 
-    public function getTitle(): string
+    public function getTitle(): ?string
     {
         return $this->title;
     }
 
-    public function setTitle(string $title): self
+    public function setTitle(?string $title): self
     {
         $this->title = $title;
 
@@ -233,36 +234,36 @@ class Course
         return $this;
     }
 
-    public function getAuthor(): string
+    public function getAuthor(): ?string
     {
         return $this->author;
     }
 
-    public function setAuthor(string $author): self
+    public function setAuthor(?string $author): self
     {
         $this->author = $author;
 
         return $this;
     }
 
-    public function getDescription(): string
+    public function getDescription(): ?string
     {
         return $this->description;
     }
 
-    public function setDescription(string $description): self
+    public function setDescription(?string $description): self
     {
         $this->description = $description;
 
         return $this;
     }
 
-    public function getType(): string
+    public function getType(): ?string
     {
         return $this->type;
     }
 
-    public function setType(string $type): self
+    public function setType(?string $type): self
     {
         $this->type = $type;
 

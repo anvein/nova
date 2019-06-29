@@ -54,7 +54,7 @@ class CourseLesson
      *
      * @var string
      */
-    private $slug = '';
+    private $slug;
 
     /**
      * Название урока.
@@ -63,15 +63,17 @@ class CourseLesson
      *
      * @var string
      */
-    private $title = '';
+    private $title;
 
     /**
      * Курс к которому относится лекция.
      *
-     * @ORM\ManyToOne(targetEntity="App\Entity\Course")
-     * @ORM\JoinColumn(nullable=true, onDelete="SET NULL")
+     * @Assert\NotBlank()
      *
-     * @var Course|null
+     * @ORM\ManyToOne(targetEntity="App\Entity\Course")
+     * @ORM\JoinColumn(nullable=false)
+     *
+     * @var Course
      */
     private $course;
 
@@ -98,9 +100,9 @@ class CourseLesson
      *
      * @ORM\Column(type="text")
      *
-     * @var string
+     * @var string|null
      */
-    private $descriptionPreview = '';
+    private $descriptionPreview;
 
     /**
      * Дата выхода урока.
@@ -116,7 +118,7 @@ class CourseLesson
      *
      * @ORM\OneToOne(targetEntity="App\Entity\CourseLesson", inversedBy="prevLesson", cascade={"persist", "remove"})
      *
-     * @var CourseLesson
+     * @var CourseLesson|null
      */
     private $nextLesson;
 
@@ -125,7 +127,7 @@ class CourseLesson
      *
      * @ORM\OneToOne(targetEntity="App\Entity\CourseLesson", mappedBy="nextLesson", cascade={"persist", "remove"})
      *
-     * @var CourseLesson
+     * @var CourseLesson|null
      */
     private $prevLesson;
 
@@ -156,6 +158,15 @@ class CourseLesson
      * @var File|null
      */
     private $coverFile;
+
+    /**
+     * Выводить ли обложку на деталке.
+     *
+     * @ORM\Column(type="boolean")
+     *
+     * @var bool
+     */
+    private $viewCoverInDetail = false;
 
     /**
      * Дата и время последнего обновления.
@@ -200,24 +211,24 @@ class CourseLesson
         return $this;
     }
 
-    public function getSlug(): string
+    public function getSlug(): ?string
     {
         return $this->slug;
     }
 
-    public function setSlug(string $slug): self
+    public function setSlug(?string $slug): self
     {
         $this->slug = $slug;
 
         return $this;
     }
 
-    public function getCourse(): ?Course
+    public function getCourse(): Course
     {
         return $this->course;
     }
 
-    public function setCourse(?Course $course): self
+    public function setCourse(Course $course): self
     {
         $this->course = $course;
 
@@ -248,12 +259,12 @@ class CourseLesson
         return $this;
     }
 
-    public function getDescriptionPreview(): string
+    public function getDescriptionPreview(): ?string
     {
         return $this->descriptionPreview;
     }
 
-    public function setDescriptionPreview(string $descriptionPreview): self
+    public function setDescriptionPreview(?string $descriptionPreview): self
     {
         $this->descriptionPreview = $descriptionPreview;
 
@@ -294,7 +305,7 @@ class CourseLesson
         $this->prevLesson = $prevLesson;
 
         // set (or unset) the owning side of the relation if necessary
-        $newNextLesson = $prevLesson === null ? null : $this;
+        $newNextLesson = ($prevLesson === null) ? null : $this;
         if ($newNextLesson !== $prevLesson->getNextLesson()) {
             $prevLesson->setNextLesson($newNextLesson);
         }
@@ -314,12 +325,12 @@ class CourseLesson
         return $this;
     }
 
-    public function getTitle(): string
+    public function getTitle(): ?string
     {
         return $this->title;
     }
 
-    public function setTitle(string $title): self
+    public function setTitle(?string $title): self
     {
         $this->title = $title;
 
@@ -364,6 +375,19 @@ class CourseLesson
 
         return $this;
     }
+
+    public function getViewCoverInDetail(): bool
+    {
+        return $this->viewCoverInDetail;
+    }
+
+    public function setViewCoverInDetail(bool $viewCoverInDetail): self
+    {
+        $this->viewCoverInDetail = $viewCoverInDetail;
+
+        return $this;
+    }
+
 
     public function getUpdatedAt(): DateTimeInterface
     {

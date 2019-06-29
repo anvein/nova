@@ -7,6 +7,8 @@ use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 /**
+ * Репозиторий курсов.
+ *
  * @method Course|null find($id, $lockMode = null, $lockVersion = null)
  * @method Course|null findOneBy(array $criteria, array $orderBy = null)
  * @method Course[]    findAll()
@@ -17,6 +19,42 @@ class CourseRepository extends ServiceEntityRepository
     public function __construct(RegistryInterface $registry)
     {
         parent::__construct($registry, Course::class);
+    }
+
+    /**
+     * Возвращает активные курсы согласно сортировке.
+     *
+     * @return Course[]
+     */
+    public function getActive(): array
+    {
+        return $this->createQueryBuilder('course')
+            ->where('course.active = true')
+            ->andWhere('course.slug != :otherSlug')
+            ->setParameter('otherSlug', 'other')
+            ->orderBy('course.sort', 'ASC')
+            ->setMaxResults(10)
+            ->getQuery()
+            ->getResult();
+    }
+
+
+    /**
+     * Возвращает активный курс по его коду, либо null.
+     *
+     * @param string $slug
+     *
+     * @return Course|null
+     */
+    public function getActiveCourseBySlug(string $slug): ?Course
+    {
+        return $this->createQueryBuilder('course')
+            ->andWhere('course.active = true')
+            ->andWhere('course.slug = :slug')
+            ->setParameter('slug', $slug)
+            ->orderBy('course.sort', 'ASC')
+            ->getQuery()
+            ->getOneOrNullResult();
     }
 
     // /**
