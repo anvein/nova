@@ -2,29 +2,22 @@
 
 {% block title %} Обучающие курсы {% endblock %}
 
-
 {% block body %}
+    {{ include('/baseLayout/breadcrumbs.twig', {
+        titleH1: 'Курсы',
+        breadcrumbsImageSrc: asset('/assets/img/new_content/edu.jpg'),
+        breadcrumbs: [
+        {
+            'url': path('page_home'),
+            'text': 'Главная'
+        },
+        {
+            'url': path('courses_list'),
+            'text': 'Курсы'
+        }
+        ]
+    }) }}
 
-    <section class="page-title-section2 bg-img cover-background" data-overlay-dark="7" data-background="/assets/img/bg/bg9.jpg">
-        <div class="container">
-
-            <div class="row">
-                <div class="col-md-12">
-                    <h1>Blog List</h1>
-                </div>
-                <div class="col-md-12">
-                    <ul>
-                        <li><a href="home-default.html">Home</a></li>
-                        <li><a href="javascript:void(0)">Blog List Sidebar</a></li>
-                    </ul>
-                </div>
-            </div>
-
-        </div>
-    </section>
-    <!-- end page title section -->
-
-    <!-- start blog section -->
     <section>
         <div class="container">
 
@@ -47,7 +40,7 @@
                                     <h4>{{ course.title }}</h4>
                                     <p>{{ course.description }}</p>
                                     <div class="text-left margin-10px-top">
-                                        <a href="{{ path('courses_course', {courseSlug: course.slug} ) }}" class="butn small">
+                                        <a href="{{ path('courses_course', {courseSlug: course.slug} ) }}" class="btnz small">
                                             <span>К урокам курса</span>
                                         </a>
                                     </div>

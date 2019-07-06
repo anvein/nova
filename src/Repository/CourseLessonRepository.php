@@ -62,15 +62,19 @@ class CourseLessonRepository extends ServiceEntityRepository
      * Возвращает урок по slug'у.
      *
      * @param string $lessonSlug
+     * @param string $courseSlug
      *
      * @return CourseLesson|null
      */
-    public function getActiveLessonBySlug(string $lessonSlug): ?CourseLesson
+    public function getActiveLessonBySlugs(string $lessonSlug, string $courseSlug): ?CourseLesson
     {
         return $this->createQueryBuilder('lesson')
             ->where('lesson.active = true')
-            ->andWhere('lesson.slug = :slug')
-            ->setParameter('slug', $lessonSlug)
+            ->andWhere('lesson.slug = :lessonSlug')
+            ->setParameter('lessonSlug', $lessonSlug)
+            ->join('lesson.course', 'course')
+            ->andWhere('course.slug = :courseSlug')
+            ->setParameter('courseSlug', $courseSlug)
             ->getQuery()
             ->getOneOrNullResult();
     }

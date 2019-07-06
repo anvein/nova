@@ -45,7 +45,7 @@ a, a:active, a:focus { color: #616161; text-decoration: none; transition-timing-
 a:hover, a:active{color: #232323; text-decoration: none;}
 a:focus, a:active, button:focus, button:active,.btn.active.focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn:active:focus, .btn:focus {outline: none;}
 img {max-width:100%; height:auto; }
-input, textarea, select{ border: 1px solid #d1d1d1; font-size: 14px;  padding: 8px 15px; width: 100%; margin: 0 0 15px 0; max-width: 100%; resize: none;}
+input, textarea, select{ border: 1px solid #d1d1d1; font-size: 14px;  padding: 14px 16px; width: 100%; margin: 0 0 15px 0; max-width: 100%; resize: none; }
 input[type="button"], input[type="text"], input[type="email"], input[type="search"], input[type="password"], textarea, input[type="submit"] { -webkit-appearance: none; outline: none;}
 input:focus, textarea:focus{ border-color: #585858; outline: none; }
 input[type="button"]:focus{ outline: none; }

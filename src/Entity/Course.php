@@ -13,11 +13,6 @@ use DateTime;
 
 // todo - прикрутить валидаторы
 
-// todo - задать названия полям на русском в админке
-// todo - объединить поля в админке по группам
-// todo - переименовать сущность в админке + сменить значок
-// todo - объединить сущности в группы
-
 /**
  * Сущность "Курс".
  *
@@ -163,6 +158,40 @@ class Course
      */
     private $breadcrumbImageFile;
 
+    /**
+     * Название курса в хлебных крошках (если надо переопределить основное название).
+     *
+     * Если это поле не задано то название для хлебных крошек должно браться из поля title.
+     *
+     * @ORM\Column(type="string", length=255, nullable=true)
+     *
+     * @var string|null
+     */
+    private $breadcrumbsTitle;
+
+    /**
+     * Стили для хлебных крошек. (вместо картинки, например: для градиента)
+     *
+     * @ORM\Column(type="text", nullable=true)
+     *
+     * @var string|null
+     */
+    private $breadcrumbsStyles;
+
+    /**
+     * Курс реализует раздел "все уроки".
+     *
+     * Правила:
+     * В нем будут выведены все уроки.
+     * Только один курс может рализовывать этот раздел.
+     * В списке курсов этот курс не будет выводиться.
+     *
+     * @ORM\Column(type="boolean")
+     *
+     * @var bool
+     */
+    private $realizeAllLessonsSection = false;
+
     public function __construct()
     {
         $this->date = new DateTime;
@@ -272,7 +301,9 @@ class Course
 
     public function __toString(): string
     {
-        return $this->getTitle();
+        $title = $this->getTitle();
+
+        return !is_null($title) ? $title : '';
     }
 
     public function getCoverImage(): ?string
@@ -337,6 +368,42 @@ class Course
         if ($breadcrumbImageFile) {
             $this->updatedAt = new DateTime('now');
         }
+
+        return $this;
+    }
+
+    public function getBreadcrumbsTitle(): ?string
+    {
+        return $this->breadcrumbsTitle;
+    }
+
+    public function setBreadcrumbsTitle(?string $breadcrumbsTitle): self
+    {
+        $this->breadcrumbsTitle = $breadcrumbsTitle;
+
+        return $this;
+    }
+
+    public function getBreadcrumbsStyles(): ?string
+    {
+        return $this->breadcrumbsStyles;
+    }
+
+    public function setBreadcrumbsStyles(?string $breadcrumbsStyles): self
+    {
+        $this->breadcrumbsStyles = $breadcrumbsStyles;
+
+        return $this;
+    }
+
+    public function getRealizeAllLessonsSection(): bool
+    {
+        return $this->realizeAllLessonsSection;
+    }
+
+    public function setRealizeAllLessonsSection(bool $realizeAllLessonsSection): self
+    {
+        $this->realizeAllLessonsSection = $realizeAllLessonsSection;
 
         return $this;
     }

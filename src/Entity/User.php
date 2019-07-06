@@ -52,6 +52,15 @@ class User implements UserInterface
      */
     private $password = '';
 
+    /**
+     * Фамилия и Имя пользователя.
+     *
+     * @ORM\Column(type="string", nullable=false, options={"default": ""})
+     *
+     * @var string|null
+     */
+    private $fio;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -124,9 +133,27 @@ class User implements UserInterface
     /**
      * @see UserInterface
      */
-    public function eraseCredentials()
+    public function eraseCredentials(): void
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
     }
+
+    public function getFio(): ?string
+    {
+        return $this->fio;
+    }
+
+    public function setFio(?string $fio): self
+    {
+        $this->fio = $fio;
+
+        return $this;
+    }
+
+    public function __toString(): string
+    {
+        return "{$this->getFio()}";
+    }
+
 }

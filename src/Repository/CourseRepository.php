@@ -22,16 +22,15 @@ class CourseRepository extends ServiceEntityRepository
     }
 
     /**
-     * Возвращает активные курсы согласно сортировке.
+     * Возвращает активные курсы согласно сортировке (без курса, который реализует раздел "Все курсы").
      *
      * @return Course[]
      */
-    public function getActive(): array
+    public function getActiveExcludeRealizeAllLessonsSection(): array
     {
         return $this->createQueryBuilder('course')
             ->where('course.active = true')
-            ->andWhere('course.slug != :otherSlug')
-            ->setParameter('otherSlug', 'other')
+            ->andWhere('course.realizeAllLessonsSection = false')
             ->orderBy('course.sort', 'ASC')
             ->setMaxResults(10)
             ->getQuery()

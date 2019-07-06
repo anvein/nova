@@ -15,7 +15,7 @@ class CourseFixtures extends Fixture
     public const COURSE_ALL = 'COURSE_ALL';
 
 
-    public function load(ObjectManager $manager)
+    public function load(ObjectManager $manager): void
     {
         $arCourses = [
             self::COURSE_BITRIX => [

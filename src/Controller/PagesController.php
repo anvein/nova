@@ -14,10 +14,22 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class PagesController extends AbstractController
 {
     /**
-     * @Route("/", name="page_home")
+     * Главная страница.
+     *
+     * @Route("/", name="page_home", methods={"GET"})
      */
-    public function home(): Response
+    public function homePage(): Response
     {
-        return $this->render('pages/home.html.twig');
+        return $this->redirectToRoute('courses_list');
+    }
+
+    /**
+     * Страница контакты.
+     *
+     * @Route("/contacts", name="page_contact", methods={"GET"})
+     */
+    public function contactPage(): Response
+    {
+        return $this->render('pages/pageDevelopment.html.twig');
     }
 }

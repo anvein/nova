@@ -1,11 +1,11 @@
 easy_admin:
-  site_name: "NOVA Digital Agency"
+  site_name: '<img src="/assets/img/logos/logo-2-dark.png" width="130px">'
 
   user:
     display_name: true
     display_avatar: true
-    name_property_path: 'fullName'
-    avatar_property_path: 'gravatar'
+    #name_property_path: 'fio'
+    #avatar_property_path: 'gravatar'
 
   list:
     max_results: 30
@@ -20,6 +20,7 @@ easy_admin:
     assets:
       css:
         - 'bundles/easyadmin/bootstrap-all.css'
+        - 'assets/css/easyadmin_custom.css'
       js:
         - 'bundles/easyadmin/bootstrap-all.js'
       favicon: '/assets/img/favicons/favicon.png'
@@ -33,6 +34,8 @@ easy_admin:
       - { entity: CourseLesson, label: 'Уроки', icon: 'list-alt'}
       - { label: 'Перейти к разделу', route: 'courses_list', target: '_blank', icon: 'eye' }
 
+      - { label: 'Администрирование'}
+      - { entity: User, label: 'Пользователи', icon: 'user-circle'}
 
   entities:
 
@@ -67,7 +70,10 @@ easy_admin:
           - {property: author, label: 'Автор'}
           - {property: description, label: 'Описание'}
           - {property: coverImageFile, type: 'vich_image', label: 'Обложка'}
-          - {property: breadcrumbImageFile, type: 'vich_image', label: 'Картинка на хлебных крошках'}
+          - {property: breadcrumbImageFile, type: 'vich_image', label: 'Картинка на хлебных крошках', help: '~1000x605'}
+          - {property: breadcrumbsTitle, label: 'Название курса в хлебных крошках', help: 'Если надо переопределить основное название'}
+          - {property: breadcrumbsStyles, label: 'Стили для хлебных крошек' } # type: 'code_editor' (не работает сохранение данных этого поля)
+          - {property: realizeAllLessonsSection, label: 'Курс реализует раздел "Все уроки"', help: 'В нем будут выведены все уроки. В списке курсов этот курс не будет выводиться.'}
 
       edit:
         title: 'Редактирование курса (#%%entity_id%%)'
@@ -113,3 +119,26 @@ easy_admin:
 
       edit:
         title: 'Редактирование урока #%%entity_id%%'
+
+
+    User:
+      class: App\Entity\User
+      label: 'Пользователь'
+
+      list:
+        fields:
+          - { property: 'id', label: 'ID'}
+          - { property: 'email', label: 'Email / Логин'}
+          - { property: 'fio', label: 'Фамилия и Имя'}
+
+      form:
+        fields:
+          - { property: 'id', label: 'ID',  type_options: { disabled: true } }
+          - { property: 'email', label: 'E-mail / Логин',  type_options: { disabled: true, trim: true } }
+          - { property: 'fio', label: 'Имя и Фамилия' }
+#          - { property: 'roles', label: 'Роли', type: 'Symfony\Component\Form\Extension\Core\Type\ChoiceType' }
+
+      new:
+        fields:
+          - { property: '-id' }
+          - { property: 'email', label: 'E-mail / Логин',  type_options: { disabled: false } }

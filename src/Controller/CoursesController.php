@@ -19,7 +19,6 @@ use Symfony\Component\Routing\Annotation\Route;
 class CoursesController extends AbstractController
 {
 
-
     /**
      * @var CourseRepository $courseRepository
      */
@@ -39,11 +38,11 @@ class CoursesController extends AbstractController
     /**
      * Список курсов.
      *
-     * @Route("/courses", name="courses_list")
+     * @Route("/courses", name="courses_list", methods={"GET"})
      */
     public function coursesList(): Response
     {
-        $courses = $this->courseRepository->getActive();
+        $courses = $this->courseRepository->getActiveExcludeRealizeAllLessonsSection();
 
         $response = $this->render('courses/coursesList.html.twig', [
             'courses' => $courses
@@ -55,26 +54,23 @@ class CoursesController extends AbstractController
     /**
      * Список уроков курса.
      *
-     * @Route("/courses/{courseSlug}/{page}", name="courses_course", requirements={"page"="\d+"})
+     * @Route("/courses/{courseSlug}/{page}", name="courses_course", requirements={"page"="\d+"}, methods={"GET"})
      */
     public function courseLessonsList(string $courseSlug, int $page = 1): Response
     {
-        $lessons = [];
-        $title = '';
+        $course = $this->courseRepository->getActiveCourseBySlug($courseSlug);
 
-        if ($courseSlug === 'all-lessons') {
-            $title = 'Все уроки';
+        if (is_null($course)) {
+            throw new NotFoundHttpException('Курс не найден');
+        } elseif ($course->getRealizeAllLessonsSection()) {
             $lessons = $this->courseLessonRepository->getAllActiveLessons();
-        } elseif ($course = $this->courseRepository->getActiveCourseBySlug($courseSlug)) {
-            $title = "{$course->getType()}: {$course->getTitle()}";
-            $lessons = $this->courseLessonRepository->getActiveLessonsByCourseSlug($courseSlug);
         } else {
-            throw new NotFoundHttpException('Курс не найден 😞');
+            $lessons = $this->courseLessonRepository->getActiveLessonsByCourseSlug($courseSlug);
         }
 
         $response = $this->render('courses/courseVideosList.html.twig', [
+            'course' => $course,
             'lessons' => $lessons,
-            'title' => $title,
         ]);
 
         return $response;
@@ -83,15 +79,13 @@ class CoursesController extends AbstractController
     /**
      * Детальная страница урока.
      *
-     * @Route("/courses/{courseSlug}/{lessonSlug}", name="courses_lesson_detail")
+     * @Route("/courses/{courseSlug}/{lessonSlug}", name="courses_lesson_detail", methods={"GET"})
      */
     public function lessonDetail(string $courseSlug, string $lessonSlug): Response
     {
-        // p.s.: фильтрация по slug'у курса не сделана умышленно
-
-        $lesson = $this->courseLessonRepository->getActiveLessonBySlug($lessonSlug);
+        $lesson = $this->courseLessonRepository->getActiveLessonBySlugs($lessonSlug, $courseSlug);
         if (is_null($lesson)) {
-            throw new NotFoundHttpException('Урок не найден 😥');
+            throw new NotFoundHttpException('Урок не найден');
         }
 
         $response = $this->render('courses/courseLessonDetail.html.twig', [

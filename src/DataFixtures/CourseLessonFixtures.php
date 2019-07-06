@@ -19,7 +19,7 @@ class CourseLessonFixtures extends Fixture implements DependentFixtureInterface
     public const LESSON_OTHER_1 = 'LESSON_OTHER_1';
 
 
-    public function load(ObjectManager $manager)
+    public function load(ObjectManager $manager): void
     {
         $lessons = [
             self::LESSON_BITRIX_1 => [

@@ -1,25 +1,23 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} {{ title }} {% endblock %}
+{% block title %} {{ course.breadcrumbsTitle | default(course.title) }} {% endblock %}
 
 {% block body %}
-    <section class="page-title-section2 bg-img cover-background" data-overlay-dark="7" data-background="/assets/img/bg/bg9.jpg">
-        <div class="container">
-
-            <div class="row">
-                <div class="col-md-12">
-                    <h1>Blog List</h1>
-                </div>
-                <div class="col-md-12">
-                    <ul>
-                        <li><a href="home-default.html">Home</a></li>
-                        <li><a href="javascript:void(0)">Blog List Sidebar</a></li>
-                    </ul>
-                </div>
-            </div>
-
-        </div>
-    </section>
+    {{ include('/baseLayout/breadcrumbs.twig', {
+        titleH1: course.breadcrumbsTitle | default(course.title),
+        breadcrumbsStyles: course.breadcrumbsStyles,
+        breadcrumbsImageSrc: vich_uploader_asset(course, 'breadcrumbImageFile'),
+        breadcrumbs: [
+        {
+            'url': path('page_home'),
+            'text': 'Главная'
+        },
+        {
+            'url': path('courses_list'),
+            'text': 'Курсы'
+        }
+        ]
+    }) }}
 
     <section>
         <div class="container">
@@ -53,11 +51,14 @@
                             </div>
                             <div class="col-md-7 col-sm-12">
                                 <div class="blog-list-simple-text">
-                                    {#<span>{{ lesson.course.title }}</span>#}
+                                    {% if course.realizeAllLessonsSection == true %}
+                                        <span>{{ lesson.course.title }}</span>
+                                    {% endif %}
+
                                     <h4>{% if lesson.number is not empty %}{{ lesson.number }}#{% endif %} {{ lesson.title }}</h4>
                                     <p>{{ lesson.descriptionPreview }}</p>
                                     <div class="text-left margin-10px-top">
-                                        <a href="{{ path('courses_lesson_detail', { courseSlug: lesson.course.slug, lessonSlug: lesson.slug}) }}" class="butn small">
+                                        <a href="{{ path('courses_lesson_detail', { courseSlug: lesson.course.slug, lessonSlug: lesson.slug}) }}" class="btnz small">
                                             <span>Подробнее</span>
                                         </a>
                                     </div>

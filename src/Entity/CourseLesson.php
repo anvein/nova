@@ -52,7 +52,7 @@ class CourseLesson
      *
      * @ORM\Column(type="string", length=255, unique=true)
      *
-     * @var string
+     * @var string|null
      */
     private $slug;
 
@@ -61,7 +61,7 @@ class CourseLesson
      *
      * @ORM\Column(type="string", length=255)
      *
-     * @var string
+     * @var string|null
      */
     private $title;
 
@@ -73,7 +73,7 @@ class CourseLesson
      * @ORM\ManyToOne(targetEntity="App\Entity\Course")
      * @ORM\JoinColumn(nullable=false)
      *
-     * @var Course
+     * @var Course|null
      */
     private $course;
 
@@ -223,12 +223,12 @@ class CourseLesson
         return $this;
     }
 
-    public function getCourse(): Course
+    public function getCourse(): ?Course
     {
         return $this->course;
     }
 
-    public function setCourse(Course $course): self
+    public function setCourse(?Course $course): self
     {
         $this->course = $course;
 
