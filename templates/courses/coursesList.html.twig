@@ -30,7 +30,7 @@
                             <div class="col-md-5 col-sm-12 sm-margin-20px-bottom">
                                 <div class=blog-list-simple-img>
                                     {% if course.coverImage is not empty %}
-                                        <img alt=img src={{ vich_uploader_asset(course, 'coverImageFile') }}>
+                                        <img alt=img src={{ vich_uploader_asset(course, 'coverImageFile') | imagine_filter('course_cover_in_list') }}>
                                     {% endif %}
                                 </div>
                             </div>

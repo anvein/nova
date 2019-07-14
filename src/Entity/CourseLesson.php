@@ -42,6 +42,7 @@ class CourseLesson
      * Индекс сортировки.
      *
      * @ORM\Column(type="integer")
+     * @Assert\NotBlank()
      *
      * @var int
      */
@@ -51,6 +52,8 @@ class CourseLesson
      * Код элемента (используется в url).
      *
      * @ORM\Column(type="string", length=255, unique=true)
+     * @Assert\Regex(pattern="/[a-z0-9_-]/")
+     * @Assert\NotBlank()
      *
      * @var string|null
      */
@@ -60,6 +63,7 @@ class CourseLesson
      * Название урока.
      *
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank()
      *
      * @var string|null
      */
@@ -99,6 +103,7 @@ class CourseLesson
      * Описание для списка.
      *
      * @ORM\Column(type="text")
+     * @Assert\NotBlank()
      *
      * @var string|null
      */
@@ -154,6 +159,7 @@ class CourseLesson
      *
      * @Vich\UploadableField(mapping="course_lesson_covers", fileNameProperty="coverFileName")
      * @Assert\Image()
+     * @Assert\NotBlank()
      *
      * @var File|null
      */
@@ -172,6 +178,7 @@ class CourseLesson
      * Дата и время последнего обновления.
      *
      * @ORM\Column(type="datetime", options={"default" : "2019-06-01 00:00:00"})
+     * @Assert\NotBlank()
      *
      * @var DateTimeInterface
      */

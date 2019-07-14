@@ -4,19 +4,21 @@ declare(strict_types=1);
 
 namespace App\Entity;
 
+use App\Validator\AllLessonsFlagTrueOnlyOne;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints as AssertDoctrineBridge;
 use Doctrine\ORM\Mapping as ORM;
 use DateTimeInterface;
 use DateTime;
-
-// todo - прикрутить валидаторы
 
 /**
  * Сущность "Курс".
  *
  * @ORM\Entity(repositoryClass="App\Repository\CourseRepository")
+ * @AssertDoctrineBridge\UniqueEntity("slug")
+ * @AllLessonsFlagTrueOnlyOne()
  * @Vich\Uploadable
  */
 class Course
@@ -45,6 +47,7 @@ class Course
      * Индекс сортировки.
      *
      * @ORM\Column(type="integer")
+     * @Assert\NotBlank()
      *
      * @var int
      */
@@ -54,10 +57,10 @@ class Course
      * Код элемента (используется в url).
      *
      * @ORM\Column(type="string", length=255, unique=true)
+     * @Assert\NotBlank()
+     * @Assert\Regex(pattern="/[a-z0-9_-]/", message="Код содержит недопустимые символы. Допустимо: a-z, 0-9, - и _")
      *
      * @var string|null
-     *
-     * // todo - прикрутить валидатор
      */
     private $slug;
 
@@ -65,6 +68,7 @@ class Course
      * Название курса.
      *
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank()
      *
      * @var string|null
      */
@@ -74,6 +78,7 @@ class Course
      * Дата выхода курса.
      *
      * @ORM\Column(type="date")
+     * @Assert\NotBlank()
      *
      * @var DateTimeInterface
      */
@@ -101,8 +106,8 @@ class Course
     /**
      * Тип курса.
      *
-     * @Assert\NotBlank()
      * @ORM\Column(type="string", length=255, nullable=false)
+     * @Assert\NotBlank()
      *
      * @var string|null
      */
@@ -117,14 +122,12 @@ class Course
      */
     private $coverImage;
 
-
-//* @Assert\NotBlank(message="Необходимо обязательно указать Обложку")
-
     /**
      * Файл обложки курса.
      *
      * @Vich\UploadableField(mapping="course_covers", fileNameProperty="coverImage")
-     * @Assert\Image()
+     * @Assert\Image(maxSize="1M")
+     * @Assert\NotBlank()
      *
      * @var File|null
      */
@@ -134,6 +137,7 @@ class Course
      * Дата и время последнего обновления.
      *
      * @ORM\Column(type="datetime", options={"default" : "2019-06-01 00:00:00"})
+     * @Assert\DateTime()
      *
      * @var DateTimeInterface
      */
