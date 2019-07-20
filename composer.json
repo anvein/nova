@@ -22,6 +22,13 @@
         "symfony/yaml": "4.3.*",
         "vich/uploader-bundle": "^1.8"
     },
+    "require-dev": {
+        "doctrine/doctrine-fixtures-bundle": "^3.2",
+        "easycorp/easy-deploy-bundle": "^1.0",
+        "friendsofphp/php-cs-fixer": "^2.15",
+        "symfony/maker-bundle": "^1.11",
+        "vimeo/psalm": "^3.4"
+    },
     "config": {
         "preferred-install": {
             "*": "dist"
@@ -66,11 +73,5 @@
             "allow-contrib": false,
             "require": "4.3.*"
         }
-    },
-    "require-dev": {
-        "doctrine/doctrine-fixtures-bundle": "^3.2",
-        "friendsofphp/php-cs-fixer": "^2.15",
-        "symfony/maker-bundle": "^1.11",
-        "vimeo/psalm": "^3.4"
     }
 }

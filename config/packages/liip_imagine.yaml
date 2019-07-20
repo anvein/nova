@@ -8,7 +8,7 @@ liip_imagine:
     default:
       web_path:
         web_root: '%kernel.root_dir%/../public'
-        cache_prefix: 'media/cache'
+        cache_prefix: 'uploads/liip_cache'
 
   # конфигурируемые доступные DataLoader
   loaders:
@@ -31,4 +31,3 @@ liip_imagine:
 
 #  cache:        default
 #  data_loader:  default
-
