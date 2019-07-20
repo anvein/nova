@@ -2,7 +2,6 @@
 
 namespace App\Validator;
 
-use App\Entity\Course;
 use Symfony\Component\Validator\Constraint;
 
 /**

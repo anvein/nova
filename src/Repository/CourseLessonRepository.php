@@ -79,7 +79,6 @@ class CourseLessonRepository extends ServiceEntityRepository
             ->getOneOrNullResult();
     }
 
-
     // /**
     //  * @return CourseLesson[] Returns an array of CourseLesson objects
     //  */

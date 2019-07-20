@@ -395,7 +395,6 @@ class CourseLesson
         return $this;
     }
 
-
     public function getUpdatedAt(): DateTimeInterface
     {
         return $this->updatedAt;
@@ -415,5 +414,4 @@ class CourseLesson
     {
         $this->setUpdatedAt(new DateTime('now'));
     }
-
 }

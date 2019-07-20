@@ -87,7 +87,6 @@ class PagesController extends AbstractController
         return $this->handleCourse($request, $course);
     }
 
-
     /**
      * Обрабатывает курс.
      *
@@ -103,7 +102,7 @@ class PagesController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $course= $form->getData();
+            $course = $form->getData();
 
             $this->objectManager->persist($course);
             $this->objectManager->flush();
@@ -113,5 +112,4 @@ class PagesController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
-
 }

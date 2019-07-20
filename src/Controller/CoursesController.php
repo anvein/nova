@@ -18,14 +18,13 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class CoursesController extends AbstractController
 {
-
     /**
-     * @var CourseRepository $courseRepository
+     * @var CourseRepository
      */
     protected $courseRepository;
 
     /**
-     * @var CourseLessonRepository $courseLessonRepository
+     * @var CourseLessonRepository
      */
     protected $courseLessonRepository;
 
@@ -45,7 +44,7 @@ class CoursesController extends AbstractController
         $courses = $this->courseRepository->getActiveExcludeRealizeAllLessonsSection();
 
         $response = $this->render('courses/coursesList.html.twig', [
-            'courses' => $courses
+            'courses' => $courses,
         ]);
 
         return $response;

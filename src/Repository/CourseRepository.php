@@ -37,7 +37,6 @@ class CourseRepository extends ServiceEntityRepository
             ->getResult();
     }
 
-
     /**
      * Возвращает активный курс по его коду, либо null.
      *

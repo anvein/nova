@@ -13,7 +13,6 @@ use Symfony\Component\Validator\Exception\UnexpectedTypeException;
  */
 class AllLessonsFlagTrueOnlyOneValidator extends ConstraintValidator
 {
-
     /**
      * @var CourseRepository
      */
@@ -49,5 +48,4 @@ class AllLessonsFlagTrueOnlyOneValidator extends ConstraintValidator
             }
         }
     }
-
 }

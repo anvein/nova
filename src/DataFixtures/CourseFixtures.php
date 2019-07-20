@@ -7,13 +7,11 @@ use Doctrine\Common\Persistence\ObjectManager;
 use App\Entity\Course;
 use DateTime;
 
-
 class CourseFixtures extends Fixture
 {
     public const COURSE_BITRIX = 'COURSE_BILTRIX';
     public const COURSE_TEST = 'COURSE_TEST';
     public const COURSE_ALL = 'COURSE_ALL';
-
 
     public function load(ObjectManager $manager): void
     {
@@ -26,7 +24,7 @@ class CourseFixtures extends Fixture
                 'description' => 'Online курс по одной из самых популярных CMS в России с проработанной системой заданий. В курсе ты изучишь большинство необходимых инструментов для разработки сайтов и возможности зарабатывать с этого.',
                 'slug' => 'bitrix',
             ],
-            self::COURSE_TEST   => [
+            self::COURSE_TEST => [
                 'title' => 'Тестовый курс (2019)',
                 'type' => 'Online курс',
                 'date' => new DateTime('2019-05-10'),
@@ -37,11 +35,11 @@ class CourseFixtures extends Fixture
                 'title' => 'Вне курсов',
                 'description' => 'Все уроки не вошедшие в курсы.',
                 'slug' => 'other',
-            ]
+            ],
         ];
 
         foreach ($arCourses as $key => $course) {
-            $courseObj  = new Course;
+            $courseObj = new Course;
 
             $courseObj->setSlug($course['slug']);
 

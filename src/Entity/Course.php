@@ -174,7 +174,7 @@ class Course
     private $breadcrumbsTitle;
 
     /**
-     * Стили для хлебных крошек. (вместо картинки, например: для градиента)
+     * Стили для хлебных крошек. (вместо картинки, например: для градиента).
      *
      * @ORM\Column(type="text", nullable=true)
      *
@@ -411,5 +411,4 @@ class Course
 
         return $this;
     }
-
 }

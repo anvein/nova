@@ -2,14 +2,13 @@
 
 use EasyCorp\Bundle\EasyDeployBundle\Deployer\DefaultDeployer;
 
-/**
+/*
  * Команды:
  * bin/console deploy <stege> -v --dry-run
  * --dry-run - запустить без выполнения команд, чтобы посмотреть, что будет выполнено
  * -v - отобразить  подробную информацию о процессе деплоя
  */
-return new class extends DefaultDeployer
-{
+return new class extends DefaultDeployer {
     public function configure()
     {
         return $this->getConfigBuilder()
@@ -21,21 +20,31 @@ return new class extends DefaultDeployer
             ->repositoryUrl('git@github.com:anvein/nova.git')
             // the repository branch to deploy
             ->repositoryBranch('master')
+            ->keepReleases(2)
+            ->symfonyEnvironment('prod')
+            ->warmupCache(true)
+            //->installWebAssets(true)
+            //->dumpAsseticAssets(false)
             //->useSshAgentForwarding(true)
+            //->resetOpCacheFor(string $homepageUrl)
         ;
     }
 
     // run some local or remote commands before the deployment is started
     public function beforeStartingDeploy()
     {
+        $this->log('Checking that the repository is in a clean state.');
+        $this->runLocal('git diff --quiet');
+
         // $this->runLocal('./vendor/bin/simple-phpunit');
     }
 
     // run some local or remote commands after the deployment is finished
     public function beforeFinishingDeploy()
     {
-         $this->runRemote('{{ console_bin }} doctrine:migrations:migrate');
+        $this->runRemote('{{ console_bin }} doctrine:migrations:migrate');
+        $this->runRemote('{{ console_bin }} liip:imagine:cache:remove ');
 
-         $this->runLocal('Деплой завершен!');
+        $this->runLocal('Деплой завершен!');
     }
 };

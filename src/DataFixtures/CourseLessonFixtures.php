@@ -18,7 +18,6 @@ class CourseLessonFixtures extends Fixture implements DependentFixtureInterface
     public const LESSON_BITRIX_3 = 'LESSON_BITRIX_3';
     public const LESSON_OTHER_1 = 'LESSON_OTHER_1';
 
-
     public function load(ObjectManager $manager): void
     {
         $lessons = [
