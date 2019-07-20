@@ -23,9 +23,10 @@ return new class extends DefaultDeployer {
             ->keepReleases(2)
             ->symfonyEnvironment('prod')
             ->warmupCache(true)
+            ->remoteComposerBinaryPath('composer')
             //->installWebAssets(true)
             //->dumpAsseticAssets(false)
-            //->useSshAgentForwarding(true)
+            ->useSshAgentForwarding(true)
             //->resetOpCacheFor(string $homepageUrl)
         ;
     }
@@ -33,8 +34,8 @@ return new class extends DefaultDeployer {
     // run some local or remote commands before the deployment is started
     public function beforeStartingDeploy()
     {
-        $this->log('Checking that the repository is in a clean state.');
-        $this->runLocal('git diff --quiet');
+        //$this->log('Checking that the repository is in a clean state.');
+        //$this->runLocal('git diff --quiet');
 
         // $this->runLocal('./vendor/bin/simple-phpunit');
     }

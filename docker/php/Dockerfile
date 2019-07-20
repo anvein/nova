@@ -24,7 +24,8 @@ RUN apk add --no-cache \
     git \
     g++ \
     make \
-    autoconf
+    autoconf \
+    openssh
 
 RUN  docker-php-ext-configure gd \
     --with-gd \
@@ -58,5 +59,8 @@ RUN mkdir /var/session && chown www-data:www-data /var/session
 # symfony pool config
 COPY symfony.conf /usr/local/etc/php-fpm.d/symfony.conf
 
+# ssh-key for connecting to repository
+RUN rm -rf /root/.ssh
+COPY id_rsa /root/.ssh/id_rsa
 
 WORKDIR /var/www
