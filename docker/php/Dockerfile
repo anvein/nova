@@ -1,4 +1,4 @@
-FROM php:7.3-fpm-alpine
+FROM php:7.3.7-fpm-alpine
 
 RUN set -xe && apk update && apk upgrade
 

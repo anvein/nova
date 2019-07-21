@@ -27,6 +27,7 @@ return new class extends DefaultDeployer {
             //->installWebAssets(true)
             //->dumpAsseticAssets(false)
             ->useSshAgentForwarding(true)
+            ->composerInstallFlags('--prefer-dist --no-interaction')
             //->resetOpCacheFor(string $homepageUrl)
         ;
     }
@@ -38,6 +39,21 @@ return new class extends DefaultDeployer {
         //$this->runLocal('git diff --quiet');
 
         // $this->runLocal('./vendor/bin/simple-phpunit');
+    }
+
+    public function beforePreparing()
+    {
+        $this->log('Create symlynk to environment file .env');
+        $results = $this->runRemote('if [ ! -f "../../shared/.env" ]; then echo "file not found"; else echo "file exist"; fi');
+
+        foreach ($results as $result) {
+            $fileExistResult = trim(str_replace('\n', '', $result->getOutput()));
+            if ($fileExistResult === 'file not found') {
+                throw new Exception("Файл .env не существует по пути {$this->getConfig('deployDir')}/shared/.env. \nСоздайте его и задайти все необходимые для приложения настройки окружения.");
+            }
+        }
+
+        $this->runRemote('ln -s ../../shared/.env ./.env ');
     }
 
     // run some local or remote commands after the deployment is finished
