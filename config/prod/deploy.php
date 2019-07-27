@@ -62,6 +62,6 @@ return new class extends DefaultDeployer {
         $this->runRemote('{{ console_bin }} doctrine:migrations:migrate');
         $this->runRemote('{{ console_bin }} liip:imagine:cache:remove ');
 
-        $this->runLocal('Деплой завершен!');
+        $this->log('Деплой завершен!');
     }
 };
