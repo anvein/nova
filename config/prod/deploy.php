@@ -8,7 +8,8 @@ use EasyCorp\Bundle\EasyDeployBundle\Deployer\DefaultDeployer;
  * --dry-run - запустить без выполнения команд, чтобы посмотреть, что будет выполнено
  * -v - отобразить  подробную информацию о процессе деплоя
  */
-return new class extends DefaultDeployer {
+return new class extends DefaultDeployer
+{
     public function configure()
     {
         return $this->getConfigBuilder()
