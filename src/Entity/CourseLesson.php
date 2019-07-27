@@ -158,7 +158,7 @@ class CourseLesson
      * Файл обложки.
      *
      * @Vich\UploadableField(mapping="course_lesson_covers", fileNameProperty="coverFileName")
-     * @Assert\Image()
+     * @Assert\Image(maxSize="3M")
      * @Assert\NotBlank()
      *
      * @var File|null
