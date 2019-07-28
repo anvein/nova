@@ -117,6 +117,7 @@ class Course
      * Название файла обложки.
      *
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\NotBlank()
      *
      * @var string|null
      */
@@ -127,7 +128,6 @@ class Course
      *
      * @Vich\UploadableField(mapping="course_covers", fileNameProperty="coverImage")
      * @Assert\Image(maxSize="3M")
-     * @Assert\NotBlank()
      *
      * @var File|null
      */
