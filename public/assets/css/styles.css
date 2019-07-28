@@ -8541,13 +8541,13 @@ h2.resp-accordion.resp-tab-active {
 }
 
 .blog-list-simple-img {
-    width: 100%;
-    height: 270px;
-    overflow-y: hidden;
-    background-image: url('/assets/img/new/no_image.jpg');
-    background-size: 60%;
-    background-position: center center;
-    background-repeat:no-repeat;
+    /*width: 100%;*/
+    /*height: 270px;*/
+    /*overflow-y: hidden;*/
+    /*background-image: url('/assets/img/new/no_image.jpg');*/
+    /*background-size: 60%;*/
+    /*background-position: center center;*/
+    /*background-repeat:no-repeat;*/
 }
 
 .blog-list-simple-text > span {
