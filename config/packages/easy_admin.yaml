@@ -69,7 +69,7 @@ easy_admin:
           - {property: date, label: 'Дата выпуска', type_options: { widget: 'single_text' }}
           - {property: author, label: 'Автор'}
           - {property: description, label: 'Описание'}
-          - {property: coverImageFile, type: 'vich_image', label: 'Обложка'}
+          - {property: coverImageFile, type: 'vich_image', label: 'Обложка', type_options: { required: false }}
           - {property: breadcrumbImageFile, type: 'vich_image', label: 'Картинка на хлебных крошках', help: '~1000x605'}
           - {property: breadcrumbsTitle, label: 'Название курса в хлебных крошках', help: 'Если надо переопределить основное название'}
           - {property: breadcrumbsStyles, label: 'Стили для хлебных крошек', type: 'code_editor' }
@@ -90,7 +90,7 @@ easy_admin:
           - {property: slug, label: 'Код'}
           - {property: sort, label: 'Сортировка'}
           - {property: title, label: 'Название'}
-          - {property: "course", label: 'Курс', type_options: {property_path: "course.title"}}
+          - {property: course, label: 'Курс', type_options: {property_path: "course.title"}}
 
       form:
         fields:

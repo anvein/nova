@@ -117,7 +117,6 @@ class Course
      * Название файла обложки.
      *
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Assert\NotBlank()
      *
      * @var string|null
      */
