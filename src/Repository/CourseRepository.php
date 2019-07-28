@@ -56,16 +56,16 @@ class CourseRepository extends ServiceEntityRepository
     }
 
     /**
-     * Возвращает массив курсов, которые реализуют раздел раздел "Все уроки".
+     * Возвращает один курс, который реализует раздел раздел "Все уроки", если такой есть.
      *
-     * @return Course[]
+     * @return Course|null
      */
-    public function getCoursesRealizedAllLessonsSection(): array
+    public function getCoursesRealizedAllLessonsSection(): ?Course
     {
         return $this->createQueryBuilder('c')
             ->where('c.realizeAllLessonsSection = true')
             ->getQuery()
-            ->getArrayResult();
+            ->getOneOrNullResult();
     }
 
     // /**

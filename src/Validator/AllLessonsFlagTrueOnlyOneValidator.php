@@ -40,9 +40,9 @@ class AllLessonsFlagTrueOnlyOneValidator extends ConstraintValidator
 
         $isRealizedAllLesson = $course->getRealizeAllLessonsSection();
         if ($isRealizedAllLesson) {
-            $coursesRealized = $this->courseRepository->getCoursesRealizedAllLessonsSection();
+            $existCourseRealizedAllLessons = $this->courseRepository->getCoursesRealizedAllLessonsSection();
 
-            if (!empty($coursesRealized)) {
+            if (!is_null($existCourseRealizedAllLessons) && $course != $existCourseRealizedAllLessons) {
                 $this->context->buildViolation($constraint->errorMessage)
                     ->addViolation();
             }
