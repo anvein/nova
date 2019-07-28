@@ -72,7 +72,7 @@ easy_admin:
           - {property: coverImageFile, type: 'vich_image', label: 'Обложка'}
           - {property: breadcrumbImageFile, type: 'vich_image', label: 'Картинка на хлебных крошках', help: '~1000x605'}
           - {property: breadcrumbsTitle, label: 'Название курса в хлебных крошках', help: 'Если надо переопределить основное название'}
-          - {property: breadcrumbsStyles, label: 'Стили для хлебных крошек' } # type: 'code_editor' (не работает сохранение данных этого поля)
+          - {property: breadcrumbsStyles, label: 'Стили для хлебных крошек', type: 'code_editor' }
           - {property: realizeAllLessonsSection, label: 'Курс реализует раздел "Все уроки"', help: 'В нем будут выведены все уроки. В списке курсов этот курс не будет выводиться.'}
 
       edit:
