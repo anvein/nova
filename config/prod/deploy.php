@@ -55,7 +55,18 @@ return new class extends DefaultDeployer
         }
 
         $this->runRemote('ln -s ../../shared/.env ./.env');
-        $this->runRemote('cd public && ln -rs ../../../shared/uploads ./uploads');
+
+
+        $this->log('Create symlynk to uploads directory');
+        $results = $this->runRemote('if [ ! -d "../../shared/uploads/" ]; then echo "directory not found"; else echo "directory exist"; fi');
+        foreach ($results as $result) {
+            $fileExistResult = trim(str_replace('\n', '', $result->getOutput()));
+            if ($fileExistResult === 'directory not found') {
+                throw new Exception("Папка uploads не существует по пути {$this->getConfig('deployDir')}/shared/uploads/. \nСоздайте её.");
+            }
+        }
+
+        $this->runRemote('cd public && ln -rs ../../../shared/uploads/ ./uploads');
     }
 
     // run some local or remote commands after the deployment is finished
