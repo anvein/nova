@@ -15,6 +15,7 @@ liip_imagine:
     default:
       filesystem:
         data_root: '%kernel.root_dir%/../public'
+        locator: filesystem_insecure
 
   # настройки фильтров
   filter_sets:
