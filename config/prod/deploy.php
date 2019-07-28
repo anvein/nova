@@ -54,8 +54,8 @@ return new class extends DefaultDeployer
             }
         }
 
-        $this->runRemote('ln -s ../../shared/.env ./.env ');
-        $this->runRemote('ln -s ../../shared/uploads ./public/uploads ');
+        $this->runRemote('ln -s ../../shared/.env ./.env');
+        $this->runRemote('cd public && ln -rs ../../../shared/uploads ./uploads');
     }
 
     // run some local or remote commands after the deployment is finished
