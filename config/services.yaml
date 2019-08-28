@@ -4,6 +4,11 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
+  app.path.course_covers: /uploads/images/course/cover
+  app.path.course_breadcrumbs: /uploads/images/course/breadcrumbs
+  app.path.course_lesson_cover: /uploads/images/course_lesson/cover
+  app.path.portfolio_element_image_for_list: /uploads/images/portfolio_element/image_for_list
+  app.path.portfolio_element_image_breadcrumbs: /uploads/images/portfolio_element/image_breadcrumbs
 
 services:
     # default configuration for services in *this* file

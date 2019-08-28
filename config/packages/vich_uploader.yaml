@@ -2,20 +2,37 @@ vich_uploader:
   db_driver: orm
 
   mappings:
+    # обложка  курса
     course_covers:
       uri_prefix:         '%app.path.course_covers%'
       upload_destination: '%kernel.project_dir%/public%app.path.course_covers%'
       namer:              Vich\UploaderBundle\Naming\UniqidNamer
       inject_on_load:     true
 
+    # хлебные крошки (картинка) курса
     course_breadcrumbs:
       uri_prefix:         '%app.path.course_breadcrumbs%'
       upload_destination: '%kernel.project_dir%/public%app.path.course_breadcrumbs%'
       namer:              Vich\UploaderBundle\Naming\UniqidNamer
       inject_on_load:     true
 
+    # обложка видеоурока
     course_lesson_covers:
       uri_prefix:         '%app.path.course_lesson_cover%'
       upload_destination: '%kernel.project_dir%/public%app.path.course_lesson_cover%'
+      namer:              Vich\UploaderBundle\Naming\UniqidNamer
+      inject_on_load:     true
+
+    # картинка элемента портфолио
+    portfolio_element_image_for_list:
+      uri_prefix:         '%app.path.portfolio_element_image_for_list%'
+      upload_destination: '%kernel.project_dir%/public%app.path.portfolio_element_image_for_list%'
+      namer:              Vich\UploaderBundle\Naming\UniqidNamer
+      inject_on_load:     true
+
+    # хлебные крошки (картинка) элемента портфолио
+    portfolio_element_image_breadcrumbs:
+      uri_prefix:         '%app.path.portfolio_element_image_breadcrumbs%'
+      upload_destination: '%kernel.project_dir%/public%app.path.portfolio_element_image_breadcrumbs%'
       namer:              Vich\UploaderBundle\Naming\UniqidNamer
       inject_on_load:     true

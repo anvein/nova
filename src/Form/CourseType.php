@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Form;
 
 use App\Entity\Course;
@@ -15,7 +17,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Vich\UploaderBundle\Form\Type\VichImageType;
 
 /**
- * Форма для создания и редактирования "Курса".
+ * Форма для создания и редактирования "Курса" (не используется).
  */
 class CourseType extends AbstractType
 {
