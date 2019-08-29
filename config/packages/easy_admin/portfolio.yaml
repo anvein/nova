@@ -1,0 +1,47 @@
+easy_admin:
+
+  entities:
+
+    PortfolioElement:
+      class: App\Entity\PortfolioElement
+      label: 'Элемент портфолио'
+
+      list:
+        title: 'Список элементов портфолио'
+#        fields:
+#                - { property: 'id', label: 'ID' }
+#                - { property: 'active', label: 'Активность' }
+#                - { property: 'slug', label: 'Код' }
+#                - { property: 'sort', label: 'Сортировка' }
+#                - { property: 'title', label: 'Наименование' }
+#                - { property: 'description', label: 'Описание' }
+#                - { property: 'coverImage', type: 'image', base_path: '%app.path.course_covers%', label: 'Обложка' }
+
+      show:
+        title: 'Элемент портфолио (#%%entity_id%%)'
+        show:
+        max_results: 10
+
+      form:
+        fields:
+          - {property: active, label: 'Активность'}
+          - {property: sort, label: 'Сортировка'}
+          - {property: slug, label: 'Код', help: 'Используется в URL'}
+          - {property: type, label: 'Тип курса'}
+          - {property: title, label: 'Наименование'}
+          - {property: date, label: 'Дата выпуска', type_options: { widget: 'single_text' }}
+          - {property: author, label: 'Автор'}
+          - {property: description, label: 'Описание'}
+          - {property: coverImageFile, type: 'vich_image', label: 'Обложка' }
+          - {property: breadcrumbImageFile, type: 'vich_image', label: 'Картинка на хлебных крошках', help: '~1000x605'}
+          - {property: breadcrumbsTitle, label: 'Название курса в хлебных крошках', help: 'Если надо переопределить основное название'}
+          - {property: breadcrumbsStyles, label: 'Стили для хлебных крошек', type: 'code_editor' }
+          - {property: realizeAllLessonsSection, label: 'Курс реализует раздел "Все уроки"', help: 'В нем будут выведены все уроки. В списке курсов этот курс не будет выводиться.'}
+
+      edit:
+        title: 'Редактирование элемента портфолио (#%%entity_id%%)'
+
+
+    PortfolioCategory:
+          class: App\Entity\PortfolioCategory
+          label: 'Категория портфолио'

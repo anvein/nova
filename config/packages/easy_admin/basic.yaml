@@ -1,0 +1,44 @@
+easy_admin:
+  site_name: '<img src="/assets/img/logos/logo-2-dark.png" width="130px">'
+
+  user:
+    display_name: true
+    display_avatar: true
+    #name_property_path: 'fio'
+    #avatar_property_path: 'gravatar'
+
+  list:
+    max_results: 30
+
+  design:
+      form_theme:
+          - '@EasyAdmin/form/bootstrap_4.html.twig'
+          - '@VichUploader/Form/fields.html.twig'
+
+      brand_color: '#8a2be2'
+      rtl: false
+      assets:
+          css:
+              - 'bundles/easyadmin/bootstrap-all.css'
+              - 'assets/css/easyadmin_custom.css'
+          js:
+              - 'bundles/easyadmin/bootstrap-all.js'
+          favicon: '/assets/img/favicons/favicon.png'
+
+      menu:
+          # - label: 'Раздел "Курсы"'
+          # icon: 'graduation-cap'
+          # children:
+          - { label: 'Раздел "Курсы"'}
+          - { entity: Course, label: 'Курсы', icon: 'graduation-cap'}
+          - { entity: CourseLesson, label: 'Уроки', icon: 'list-alt'}
+          - { label: 'Перейти к разделу', route: 'courses_list', target: '_blank', icon: 'eye' }
+
+          - { label: 'Раздел "Портфолио"'}
+          - { entity: PortfolioElement, label: 'Работы', icon: 'image'}
+          - { entity: PortfolioCategory, label: 'Разделы', icon: 'folder-o'}
+          #- { label: 'Перейти к разделу', route: 'courses_list', target: '_blank', icon: 'eye' }
+
+
+          - { label: 'Администрирование'}
+          - { entity: User, label: 'Пользователи', icon: 'user-circle'}

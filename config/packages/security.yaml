@@ -16,16 +16,17 @@ security:
             security: false
         main:
             anonymous: ~
+
             logout:
               path: app_logout
               target: /
 
+            form_login:
+              login_path: app_login
+
             guard:
                 authenticators:
                     - App\Security\FormAuthenticator
-
-            form_login:
-                login_path: app_login
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#firewalls-authentication

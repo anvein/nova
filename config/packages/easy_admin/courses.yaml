@@ -1,0 +1,84 @@
+easy_admin:
+
+  entities:
+
+    Course:
+      class: App\Entity\Course
+      label: 'Курс'
+
+      list:
+        title: 'Список курсов'
+        fields:
+          - { property: 'id', label: 'ID' }
+          - { property: 'active', label: 'Активность' }
+          - { property: 'slug', label: 'Код' }
+          - { property: 'sort', label: 'Сортировка' }
+          - { property: 'title', label: 'Наименование' }
+          - { property: 'description', label: 'Описание' }
+          - { property: 'coverImage', type: 'image', base_path: '%app.path.course_covers%', label: 'Обложка' }
+
+      show:
+        title: 'Курс (#%%entity_id%%)'
+        show:
+        max_results: 10
+
+      form:
+        fields:
+          - {property: active, label: 'Активность'}
+          - {property: sort, label: 'Сортировка'}
+          - {property: slug, label: 'Код', help: 'Используется в URL'}
+          - {property: type, label: 'Тип курса'}
+          - {property: title, label: 'Наименование'}
+          - {property: date, label: 'Дата выпуска', type_options: { widget: 'single_text' }}
+          - {property: author, label: 'Автор'}
+          - {property: description, label: 'Описание'}
+          - {property: coverImageFile, type: 'vich_image', label: 'Обложка' }
+          - {property: breadcrumbImageFile, type: 'vich_image', label: 'Картинка на хлебных крошках', help: '~1000x605'}
+          - {property: breadcrumbsTitle, label: 'Название курса в хлебных крошках', help: 'Если надо переопределить основное название'}
+          - {property: breadcrumbsStyles, label: 'Стили для хлебных крошек', type: 'code_editor' }
+          - {property: realizeAllLessonsSection, label: 'Курс реализует раздел "Все уроки"', help: 'В нем будут выведены все уроки. В списке курсов этот курс не будет выводиться.'}
+
+      edit:
+        title: 'Редактирование курса (#%%entity_id%%)'
+
+
+
+    CourseLesson:
+      class: App\Entity\CourseLesson
+      label: 'Урок курса'
+
+      list:
+        fields:
+          - {property: active, label: 'Активность'}
+          - {property: slug, label: 'Код'}
+          - {property: sort, label: 'Сортировка'}
+          - {property: title, label: 'Название'}
+          - {property: course, label: 'Курс', type_options: {property_path: "course.title"}}
+
+      form:
+        fields:
+          - { type: 'group', columns: 12, label: 'Настройки элемента', icon: 'cogs' }
+          - { property: active, label: 'Активность'}
+          - { property: slug, label: 'Код элемента', help: 'Используется в URL' }
+          - { property: sort, label: 'Сортировка'}
+
+          - { type: 'group', columns: 6, label: 'Общее', icon: 'address-card-o' }
+          - { property: number, label: 'Номер урока (в рамках курса)', help: 'Оставьте пустым, если урок не входит в курс' }
+          - { property: title, label: 'Название'}
+          - { property: date, label: 'Дата выхода', type_options: { widget: 'single_text'} }
+          - { property: course, label: 'Курс', help: 'Оставьте пустым, если не входит в курс' }
+          - { property: descriptionPreview, label: 'Описание в списке' }
+          - { property: videoLink, label: 'Ссылка на видео (youtube)', help: 'Оставьте пустым, если не надо выводить видео' }
+          - { property: coverFile, type: 'vich_image', label: 'Картинка', help: 'Если указано видео, то будет выведено видео' }
+          - { property: viewCoverInDetail, label: 'Выводить обложку на детальной' }
+
+          - { type: 'group', columns: 6, label: 'Деталка', icon: 'address-card' }
+          - { property: descriptionDetail, type: 'fos_ckeditor', label: 'Детальное описание', help: 'Оставьте пустым, если совпадает с описанием в списке'}
+          - { property: prevLesson, label: 'Предыдущий урок в рамках курса' }
+          - { property: nextLesson, label: 'Следующий урок в рамках курса' }
+
+      new:
+        title: 'Добавление нового урока'
+
+      edit:
+        title: 'Редактирование урока #%%entity_id%%'

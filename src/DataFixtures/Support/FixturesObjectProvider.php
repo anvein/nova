@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\DataFixtures\Support;
 
 use App\Entity\Course;
+use App\Entity\PortfolioCategory;
 use UnexpectedValueException;
 
 /**
@@ -30,5 +31,25 @@ trait FixturesObjectProvider
         }
 
         throw new UnexpectedValueException("Курс с кодом {$ref} не создан");
+    }
+
+    /**
+     * Возвращает категорию портфолио коду-ссылке.
+     *
+     * @param string $ref
+     *
+     * @return PortfolioCategory
+     *
+     * @throws UnexpectedValueException
+     */
+    private function getPortfolioCategoryByRef(string $ref): PortfolioCategory
+    {
+        $item = $this->getReference($ref);
+
+        if ($item instanceof PortfolioCategory) {
+            return $item;
+        }
+
+        throw new UnexpectedValueException("Категория портфолио с кодом {$ref} не создана");
     }
 }

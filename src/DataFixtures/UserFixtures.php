@@ -25,10 +25,12 @@ class UserFixtures extends Fixture
     public function load(ObjectManager $manager): void
     {
         $userAdmin = new User();
+        $userAdmin->setFio('Админ Админович');
         $userAdmin->setPassword($this->passwordEncoder->encodePassword(
             $userAdmin,
             'qwerty12345'
         ));
+        $userAdmin->setRoles(['ROLE_ADMIN']);
         $userAdmin->setEmail('admin@admin.ru');
 
         $manager->persist($userAdmin);

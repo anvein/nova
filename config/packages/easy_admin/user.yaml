@@ -1,0 +1,25 @@
+easy_admin:
+
+  entities:
+
+    User:
+      class: App\Entity\User
+      label: 'Пользователь'
+
+      list:
+        fields:
+          - { property: 'id', label: 'ID'}
+          - { property: 'email', label: 'Email / Логин'}
+          - { property: 'fio', label: 'Фамилия и Имя'}
+
+      form:
+        fields:
+          - { property: 'id', label: 'ID',  type_options: { disabled: true } }
+          - { property: 'email', label: 'E-mail / Логин',  type_options: { disabled: true, trim: true } }
+          - { property: 'fio', label: 'Имя и Фамилия' }
+#          - { property: 'roles', label: 'Роли', type: 'Symfony\Component\Form\Extension\Core\Type\ChoiceType' }
+
+      new:
+        fields:
+          - { property: '-id' }
+          - { property: 'email', label: 'E-mail / Логин',  type_options: { disabled: false } }

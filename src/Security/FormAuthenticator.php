@@ -116,7 +116,7 @@ class FormAuthenticator extends AbstractFormLoginAuthenticator
         return $this->urlGenerator->generate('app_login');
     }
 
-    // todo - пераметр не находится
+    // todo - пераметр не находится (потому что это роут?)
     protected function getAdminUrl(): string
     {
         $parameterName = 'easy_admin_bundle.prefix';
